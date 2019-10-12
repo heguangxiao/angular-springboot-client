@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyC6mcUbtFxoIzEO_s1qOfG3OgrCFnlHCVI',
+    authDomain: 'angular-springboot-client.firebaseapp.com',
+    databaseURL: 'http://angular-springboot-client.firebaseio.com',
+    projectId: 'angular-springboot-client',
+    storageBucket: 'angular-springboot-client.appspot.com/',
+    messagingSenderId: 724404852198
+  },
+  apiUrl: 'https://sheltered-brook-04677.herokuapp.com/api'
 };
 
 /*
