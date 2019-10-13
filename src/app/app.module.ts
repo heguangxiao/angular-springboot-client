@@ -22,7 +22,8 @@ import { HomeComponent } from './home/home.component';
 import {RegisterComponent} from './user/register/register.component';
 import { ChangePassComponent } from './user/change-pass/change-pass.component';
 import { HouseDetailComponent } from './house/house-detail/house-detail.component';
-import { ListHouseComponent } from './house/list-house/list-house.component';
+import { HistoryBookingComponent } from './book/history-booking/history-booking.component';
+import { ListHouseUserComponent } from './house/list-house-user/list-house-user.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ListHouseComponent } from './house/list-house/list-house.component';
     RegisterComponent,
     ChangePassComponent,
     HouseDetailComponent,
-    ListHouseComponent,
+    HistoryBookingComponent,
+    ListHouseUserComponent,
   ],
   imports: [
     BrowserModule,

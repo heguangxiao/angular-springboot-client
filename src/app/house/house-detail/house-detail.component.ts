@@ -20,7 +20,8 @@ function compareTwoDates(c: AbstractControl) {
 })
 
 export class HouseDetailComponent implements OnInit {
-  house: House = new House();
+  id: number;
+  house: House;
   errorMessage: string;
   bookForm: FormGroup;
   book: BookHouse;
@@ -39,12 +40,12 @@ export class HouseDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.houseService.getHouseInfoById(id).subscribe(data => {
-      this.errorMessage = 'oke';
-    }, error => {
-      this.errorMessage = error.message;
-    });
+    this.house = new House();
+    this.id = this.route.snapshot.params.id;
+    this.houseService.getHouseInfoById(this.id)
+      .subscribe(data => {
+        this.house = data;
+      }, error1 => console.log(error1));
     this.bookForm = this.fb.group({
       checkIn: ['', [Validators.required, Validators.min(this.minDate.getTime())]],
       checkOut: ['', [Validators.required]]

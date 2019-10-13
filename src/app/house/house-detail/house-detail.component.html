@@ -1,25 +1,4 @@
-<div id="housePhotos" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li *ngFor="let image of house.images; index as i" data-target="#housePhotos" [attr.data-slide-to]="i"
-        [ngClass]="i===0?'active':''"></li>
-  </ul>
-  <!-- The slideshow -->
-  <div class="carousel-inner">
-    <div *ngFor="let image of house.images; index as i"
-         [ngClass]="i===0?'carousel-item active':'carousel-item'" style="height: 300px">
-      <img src="{{image}}" alt="House Photo">
-    </div>
-  </div>
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#housePhotos" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#housePhotos" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
-<br>
+
 <div class="container">
   <div class="row">
     <div class="col-6">
@@ -35,12 +14,12 @@
       <p><i class='fas fa-money-check-alt'></i>
         $/night: {{house.pricePerNight}} </p>
 
-      <p *ngIf="house.isRented"><i class='fas fa-caret-square-right'></i>
+      <p *ngIf="house.isRented" style="color: red"><i class='fas fa-caret-square-right' ></i>
         Rented</p>
-      <p *ngIf="!house.isRented"><i class='fas fa-caret-square-right'></i>
+      <p *ngIf="!house.isRented" style="color: blue"><i class='fas fa-caret-square-right' ></i>
         Available</p>
-      <p><i class="material-icons">description</i>
-        {{house.description}}</p>
+      <p><i class="material-icons"></i>
+        Description: {{house.description}}</p>
     </div>
     <div class=" col-6">
       <form [formGroup]="bookForm" (ngSubmit)="onBooking()">
@@ -48,20 +27,23 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Check in</label>
-              <input type="date" class="form-control" formControlName="checkIn"
+              <input type="text" class="form-control" formControlName="checkIn"
               >
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label>Check out</label>
-              <input type="date" class="form-control" formControlName="checkOut">
+              <input type="text" class="form-control" formControlName="checkOut">
             </div>
           </div>
         </div>
         <input type="submit" class="btn btn-danger book" value="Booking">
         <div>
           Total : {{total}}$
+        </div>
+        <div>
+          <a class="btn badge-dark" [routerLink]="[ '/', 'history']">History Booking</a>
         </div>
       </form>
       <div *ngIf="booked && booking" class="alert alert-success">
