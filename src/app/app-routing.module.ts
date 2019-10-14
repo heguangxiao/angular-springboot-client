@@ -10,6 +10,9 @@ import {AuthGuardService} from './service/auth-guard.service';
 import {RegisterComponent} from './user/register/register.component';
 import {ChangePassComponent} from './user/change-pass/change-pass.component';
 import {EditUserComponent} from './user/edit-user/edit-user.component';
+import {HouseOwnerComponent} from './house-owner/house-owner.component';
+import {NewHouseComponent} from './house-owner/new-house/new-house.component';
+import {ChangeHouseStatusComponent} from './house-owner/change-house-status/change-house-status.component';
 
 
 const routes: Routes = [
@@ -24,6 +27,9 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
   { path: 'password', component: ChangePassComponent, canActivate: [AuthGuardService] },
   { path: 'editUser', component: EditUserComponent, canActivate: [AuthGuardService] },
+  { path: 'houseOwner', component: HouseOwnerComponent, canActivate: [AuthGuardService] },
+  { path: 'newhouse', component: NewHouseComponent, canActivate: [AuthGuardService] },
+  { path: 'statushouse/:id', component: ChangeHouseStatusComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

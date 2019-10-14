@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
 import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
@@ -21,6 +21,9 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { HomeComponent } from './home/home.component';
 import {RegisterComponent} from './user/register/register.component';
 import { ChangePassComponent } from './user/change-pass/change-pass.component';
+import { HouseOwnerComponent } from './house-owner/house-owner.component';
+import { NewHouseComponent } from './house-owner/new-house/new-house.component';
+import { ChangeHouseStatusComponent } from './house-owner/change-house-status/change-house-status.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { ChangePassComponent } from './user/change-pass/change-pass.component';
     HomeComponent,
     RegisterComponent,
     ChangePassComponent,
+    HouseOwnerComponent,
+    NewHouseComponent,
+    ChangeHouseStatusComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +51,7 @@ import { ChangePassComponent } from './user/change-pass/change-pass.component';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {
