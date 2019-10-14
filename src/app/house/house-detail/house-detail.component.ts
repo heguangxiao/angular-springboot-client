@@ -28,7 +28,6 @@ export class HouseDetailComponent implements OnInit {
   isBookHouse = false;
   invalidMessage: string;
   booked = false;
-  total;
   authority = false;
   isRented;
   booking;

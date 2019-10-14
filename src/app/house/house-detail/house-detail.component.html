@@ -1,5 +1,8 @@
 
 <div class="container">
+  <div>
+    <H4>House Detail</H4>
+  </div>
   <div class="row">
     <div class="col-6">
       <p>Name: {{house.name}} </p>
@@ -23,12 +26,12 @@
     </div>
     <div class=" col-6">
       <form [formGroup]="bookForm" (ngSubmit)="onBooking()">
+        <h4>Booking House</h4>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
               <label>Check in</label>
-              <input type="text" class="form-control" formControlName="checkIn"
-              >
+              <input type="text" class="form-control" formControlName="checkIn">
             </div>
           </div>
           <div class="col-md-6">
@@ -40,7 +43,7 @@
         </div>
         <input type="submit" class="btn btn-danger book" value="Booking">
         <div>
-          Total : {{total}}$
+          Total : {{house.pricePerNight}}$
         </div>
         <div>
           <a class="btn badge-dark" [routerLink]="[ '/', 'history']">History Booking</a>
