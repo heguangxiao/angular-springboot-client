@@ -22,7 +22,6 @@ export class ChangeHouseStatusComponent implements OnInit {
   }
 
   ngOnInit() {
-    const formData: FormData = new FormData();
     this.routes.paramMap.subscribe((param: ParamMap) => {
       const id = parseInt(param.get('id'), 10);
       this.houseOwnerService.getDetailHouse(id).subscribe(next => {

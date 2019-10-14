@@ -25,8 +25,10 @@ export class HouseOwnerService {
   }
 
   changeHouseStatus(id: number, status: HouseStatus) {
+    const formData = new FormData();
+    formData.append('status', status);
     const url = `${this.apiUrl}/role/house/${id}/${status}`;
-    return this.httpClient.put(url, status);
+    return this.httpClient.put(url, formData);
   }
 
   getDetailHouse(id: number): Observable<House> {
