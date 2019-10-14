@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HouseOwnerService} from '../../service/house-owner.service';
+import {CategoryService} from '../../service/category.service';
+import {Category} from '../../class/category';
 
 @Component({
   selector: 'app-new-house',
@@ -11,15 +13,17 @@ export class NewHouseComponent implements OnInit {
 
   imageUrl = '../../assets/img/default-image.png';
   fileToUpload: File = null;
-
+  categories: Category[];
   newHouseForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private houseOwnerService: HouseOwnerService) {
+              private houseOwnerService: HouseOwnerService,
+              private categoryService: CategoryService) {
   }
 
   ngOnInit() {
     this.createHouseForm();
+    this.getCategories();
   }
 
   handleFileInput(file: FileList) {
@@ -30,6 +34,16 @@ export class NewHouseComponent implements OnInit {
       this.imageUrl = event.target.result;
     };
     reader.readAsDataURL(this.fileToUpload);
+  }
+
+  getCategories() {
+    const listCategory = this.categoryService.getCategories();
+
+    listCategory.subscribe(category => {
+      this.categories = category;
+    }, error => {
+      console.log(error);
+    });
   }
 
 
@@ -56,7 +70,6 @@ export class NewHouseComponent implements OnInit {
     formData.append('images', homePostInformation.images);
     formData.append('bedRooms', homePostInformation.bedRooms);
     formData.append('bathRooms', homePostInformation.bathRooms);
-    formData.append('status', homePostInformation.status);
     formData.append('description', homePostInformation.description);
     formData.append('category', homePostInformation.category);
     formData.append('pricePerNight', homePostInformation.pricePerNight);

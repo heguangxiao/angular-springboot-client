@@ -1,9 +1,11 @@
+<button (click)="newHouse()" class="btn btn-info">New House</button>
 <table class="table" *ngIf="houses">
   <thead class="thead-light">
   <tr>
     <th scope="col">#</th>
     <th scope="col">Name</th>
     <th scope="col">Address</th>
+    <th scope="col">Status</th>
     <th scope="col">PricePerNight</th>
     <th scope="col">Option</th>
   </tr>
@@ -11,13 +13,13 @@
   <tbody>
   <tr *ngFor="let house of houses, index as i">
     <th scope="row">{{i + 1}}</th>
-    <td style="color: darkblue">{{ house.name }}</td>
+    <td >{{ house.name }}</td>
     <td>{{ house.address }}</td>
+    <td style="color: darkblue" (click)="changeHouseStatus(house.id)">{{ house.status }}</td>
     <td>{{ house.pricePerNight }}</td>
     <td>
       <button class="btn btn-danger">Delete</button>
-      <button (click)="changeHouseStatus(house.id)" class="btn btn-warning">Edit</button>
-      <button (click)="newHouse()" class="btn btn-info">New House</button>
+      <button class="btn btn-warning">Edit</button>
     </td>
   </tr>
   </tbody>

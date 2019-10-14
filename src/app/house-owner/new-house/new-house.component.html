@@ -9,14 +9,11 @@
         </div>
       </div>
       <div class="col-md-4">
-<!--        <label>Category:-->
-<!--          <select class="custom-select" formControlName="category" required>-->
-<!--            <option selected>Open this select menu</option>-->
-<!--            <option value="">#</option>-->
-<!--            <option value="">#</option>-->
-<!--            <option value="">#</option>-->
-<!--          </select>-->
-<!--        </label>-->
+        <label>Category:
+          <select class="custom-select" formControlName="category" required>
+            <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+          </select>
+        </label>
         <label>
           <textarea class="form-control" placeholder="description" formControlName="description" required></textarea>
         </label>

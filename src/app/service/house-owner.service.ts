@@ -28,4 +28,9 @@ export class HouseOwnerService {
     const url = `${this.apiUrl}/role/house/${id}/${status}`;
     return this.httpClient.put(url, status);
   }
+
+  getDetailHouse(id: number): Observable<House> {
+    const url = `${this.apiUrl}/guest/house/${id}`;
+    return this.httpClient.get<House>(url);
+  }
 }

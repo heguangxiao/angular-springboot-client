@@ -1,13 +1,14 @@
 <div *ngIf="house">
-  <form>
+  <form (ngSubmit)="changeHouseStatus(bookForm)" #bookForm="ngForm">
     <h3>{{house.name}}</h3>
     <label>Status:
-      <select class="custom-select form-control" [value]="house.status">
-        <option value="{{statusA}}">{{statusA}}</option>
-        <option value="{{statusB}}">{{statusB}}</option>
-        <option value="{{statusCI}}">{{statusCI}}</option>
-        <option value="{{statusCO}}">{{statusCO}}</option>
+      <select class="custom-select form-control" [(ngModel)]="house.status" name="status">
+        <option name="status" value="{{statusA}}">{{statusA}}</option>
+        <option name="status" value="{{statusB}}">{{statusB}}</option>
+        <option name="status" value="{{statusCI}}">{{statusCI}}</option>
+        <option name="status" value="{{statusCO}}">{{statusCO}}</option>
       </select>
     </label>
+    <button class="btn-info">changeHouseStatus</button>
   </form>
 </div>

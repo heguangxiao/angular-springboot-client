@@ -1,4 +1,5 @@
 import {HouseStatus} from './house-status';
+import {Category} from './category';
 
 export interface House {
   id?: number;
@@ -11,4 +12,5 @@ export interface House {
   images: string;
   isRented: boolean;
   status: HouseStatus;
+  category: Category;
 }
