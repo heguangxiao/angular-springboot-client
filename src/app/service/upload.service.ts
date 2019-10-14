@@ -38,6 +38,7 @@ export class UploadService {
           fileUpload.name = fileUpload.file.name;
           this.saveFileData(fileUpload);
           this.token.saveAvatar(fileUpload.url);
+          console.log(fileUpload.url);
         });
       })
     ).subscribe();

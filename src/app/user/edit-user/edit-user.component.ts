@@ -33,6 +33,8 @@ export class EditUserComponent implements OnInit {
 
   detectFiles(event) {
     this.selectedFiles = event.target.files;
+    this.uploadAvatar();
+    console.log(this.tokenStorage.getAvatar());
   }
 
   uploadAvatar() {
@@ -60,16 +62,16 @@ export class EditUserComponent implements OnInit {
   }
 
   onSubmit() {
-      this.uploadAvatar();
+    if (!this.selectedFiles) {
       this.updateInfo.avatarUrl = this.tokenStorage.getAvatar();
-      this.data = toFormData(this.updateInfo);
-      this.authService.updateUserInfo(this.data).subscribe(
+    }
+    this.data = toFormData(this.updateInfo);
+    this.authService.updateUserInfo(this.data).subscribe(
       data => {
         console.log(data);
         this.isUpdated = true;
         this.isUpdateFailed = false;
         this.tokenStorage.saveAvatarLink(data.avatarLink);
-        this.tokenStorage.deleteAvatar();
       },
       error => {
         console.log(error);
