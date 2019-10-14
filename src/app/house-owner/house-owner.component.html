@@ -1,4 +1,4 @@
-<button (click)="newHouse()" class="btn btn-info">New House</button>
+<button (click)="newHouse()" class="btn btn-info">New HouseOwner</button>
 <table class="table" *ngIf="houses">
   <thead class="thead-light">
   <tr>
@@ -19,7 +19,6 @@
     <td>{{ house.pricePerNight }}</td>
     <td>
       <button (click)="deleteHouse(house.id)" class="btn btn-danger">Delete</button>
-      <button class="btn btn-warning">Edit</button>
     </td>
   </tr>
   </tbody>

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HouseOwnerService} from '../../service/house-owner.service';
-import {House} from '../../class/house';
 import {HouseStatus} from '../../class/house-status';
 import {ActivatedRoute, ParamMap} from '@angular/router';
+import {HouseOwner} from '../../class/house-owner';
 
 @Component({
   selector: 'app-change-house-status',
@@ -11,7 +11,7 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 })
 export class ChangeHouseStatusComponent implements OnInit {
 
-  house: House;
+  house: HouseOwner;
   statusB = HouseStatus.BOOKED;
   statusCI = HouseStatus.CHECKED_IN;
   statusCO = HouseStatus.CHECKED_OUT;

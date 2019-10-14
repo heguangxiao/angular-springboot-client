@@ -1,7 +1,7 @@
 import {HouseStatus} from './house-status';
 import {Category} from './category';
 
-export interface House {
+export interface HouseOwner {
   id?: number;
   name: string;
   address: string;

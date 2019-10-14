@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {House} from '../class/house';
 import {HouseStatus} from '../class/house-status';
+import {HouseOwner} from '../class/house-owner';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +14,9 @@ export class HouseOwnerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllHouseByUser(): Observable<House[]> {
+  getAllHouseByUser(): Observable<HouseOwner[]> {
     const url = `${this.apiUrl}/role/house`;
-    return this.httpClient.get<House[]>(url);
+    return this.httpClient.get<HouseOwner[]>(url);
   }
 
   newHouse(formData) {
@@ -31,13 +31,14 @@ export class HouseOwnerService {
     return this.httpClient.put(url, formData);
   }
 
-  getDetailHouse(id: number): Observable<House> {
+  getDetailHouse(id: number): Observable<HouseOwner> {
     const url = `${this.apiUrl}/guest/house/${id}`;
-    return this.httpClient.get<House>(url);
+    return this.httpClient.get<HouseOwner>(url);
   }
 
   deleteHouse(id: number) {
     const url = `${this.apiUrl}/role/house/${id}`;
     return this.httpClient.delete(url);
   }
+
 }
