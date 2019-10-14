@@ -18,7 +18,7 @@
     <td style="color: darkblue" (click)="changeHouseStatus(house.id)">{{ house.status }}</td>
     <td>{{ house.pricePerNight }}</td>
     <td>
-      <button class="btn btn-danger">Delete</button>
+      <button (click)="deleteHouse(house.id)" class="btn btn-danger">Delete</button>
       <button class="btn btn-warning">Edit</button>
     </td>
   </tr>

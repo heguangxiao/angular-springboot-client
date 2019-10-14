@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {HouseOwnerService} from '../service/house-owner.service';
 import {House} from '../class/house';
@@ -13,7 +13,8 @@ export class HouseOwnerComponent implements OnInit {
   houses: House[];
 
   constructor(private router: Router,
-              private houseOwnerService: HouseOwnerService) { }
+              private houseOwnerService: HouseOwnerService) {
+  }
 
   ngOnInit() {
     this.getListHouseByUser();
@@ -35,6 +36,16 @@ export class HouseOwnerComponent implements OnInit {
 
   changeHouseStatus(id: number) {
     this.router.navigate(['statushouse', id]);
+  }
+
+  deleteHouse(id: number) {
+    this.houseOwnerService.deleteHouse(id).subscribe(() => {
+      alert('You sure you want to delete');
+      this.getListHouseByUser();
+    }, error => {
+      console.log(error);
+    });
+
   }
 
 }

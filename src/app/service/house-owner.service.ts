@@ -35,4 +35,9 @@ export class HouseOwnerService {
     const url = `${this.apiUrl}/guest/house/${id}`;
     return this.httpClient.get<House>(url);
   }
+
+  deleteHouse(id: number) {
+    const url = `${this.apiUrl}/role/house/${id}`;
+    return this.httpClient.delete(url);
+  }
 }
