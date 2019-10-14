@@ -20,12 +20,14 @@
     <div class="form-group">
       <div class="form-check">
         <label class="form-check-label" for="gender-male">
-          <input id="gender-male" type="radio" class="form-check-input" name="gender" [checked]="updateInfo.gender == 'MALE'" (change)="changeGender(false)">Male
+          <input id="gender-male" type="radio" class="form-check-input" name="gender" ng-value="MALE"
+                 [checked]="updateInfo.gender == 'MALE'"  (change)="changeGender(false)">Male
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label" for="gender-female">
-          <input id="gender-female" type="radio" class="form-check-input" name="gender" [checked]="updateInfo.gender == 'FEMALE'" (change)="changeGender(true)">Female
+          <input id="gender-female" type="radio" class="form-check-input" name="gender" ng-value="FEMALE"
+                 [checked]="updateInfo.gender == 'FEMALE'"  (change)="changeGender(true)">Female
         </label>
       </div>
     </div>
@@ -42,23 +44,20 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="avatarUrl">Avatar</label>
-      <input type="text" class="form-control" name="avatarUrl" [(ngModel)]="updateInfo.avatarUrl" #address="ngModel"/>
+      <img *ngIf="updateInfo.avatarUrl" src="{{updateInfo.avatarUrl}}" class="img-thumbnail md-avatar" alt="">
+      <div *ngIf="currentUpload" class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped"
+             role="progressbar" attr.aria-valuenow="{{percentage}}"
+             aria-valuemin="0" aria-valuemax="100"
+             [ngStyle]="{width:percentage+'%'}">
+          {{percentage}}%
+        </div>
+      </div>
+
+      <label class="btn btn-default"> <input type="file"
+                                             (change)="detectFiles($event)">
+      </label>
     </div>
-<!--    <div class="form-group">-->
-<!--      <label>-->
-<!--        <span><img src="{{updateInfo.avatarUrl}}" class="img-thumbnail md-avatar" alt=""></span>-->
-<!--        <input type="file" accept="image/*" class="form-control" style="display: none" name="avatar" [(ngModel)]="updateInfo.avatarUrl" #avatar="ngModel"-->
-<!--               (change)="fileChange($event)">-->
-<!--      </label>-->
-<!--      <div *ngIf="currentFileUpload" class="progress">-->
-<!--        <div class="progress-bar progress-bar-info progress-bar-striped"-->
-<!--             role="progressbar" attr.aria-valuenow="{{progress.percentage}}"-->
-<!--             aria-valuemin="0" aria-valuemax="100"-->
-<!--             [ngStyle]="{width:progress.percentage+'%'}">-->
-<!--          {{progress.percentage}}%</div>-->
-<!--      </div>-->
-<!--    </div>-->
     <div class="form-group">
       <button class="btn btn-primary">Update</button>
       <div *ngIf="f.submitted&&isUpdated" class="alert alert-success">

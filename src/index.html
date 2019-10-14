@@ -7,8 +7,31 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+
 </head>
 <body>
 <app-root></app-root>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: 'AIzaSyBGJEOHGdg4mAuKRXnUyTo0LkkSY4Yyzv4',
+        authDomain: 'angular-alpha-client.firebaseapp.com',
+        databaseURL: 'http://angular-alpha-client.firebaseio.com',
+        projectId: 'angular-alpha-client',
+        storageBucket: 'angular-alpha-client.appspot.com',
+        messagingSenderId: '119689147504',
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
 </body>
 </html>

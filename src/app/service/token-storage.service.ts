@@ -4,6 +4,7 @@ const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUsername';
 const AUTHORITIES_KEY = 'AuthAuthorities';
 const AVATAR_LINK_KEY = 'AvatarLink';
+const AVATAR_KEY = 'Avatar';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +54,13 @@ export class TokenStorageService {
   }
   public getAvatarLink(): string {
     return window.localStorage.getItem(AVATAR_LINK_KEY);
+  }
+
+  public saveAvatar(avatar: string) {
+    window.localStorage.removeItem(AVATAR_KEY);
+    window.localStorage.setItem(AVATAR_KEY, avatar);
+  }
+  public getAvatar(): string {
+    return window.localStorage.getItem(AVATAR_KEY);
   }
 }

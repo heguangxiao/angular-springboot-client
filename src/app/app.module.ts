@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
 import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
@@ -21,6 +21,17 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { HomeComponent } from './home/home.component';
 import {RegisterComponent} from './user/register/register.component';
 import { ChangePassComponent } from './user/change-pass/change-pass.component';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import { DropzoneDirective } from './directive/dropzone.directive';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {FileSelectDirective} from 'ng2-file-upload';
+import { UploadComponent } from './uploads/shared/upload/upload.component';
+import * as firebase from 'firebase';
+import { DetailsUploadComponent } from './uploads/shared/details-upload/details-upload.component';
+import { ListUploadComponent } from './uploads/shared/list-upload/list-upload.component';
+import { ShowUploadComponent } from './uploads/shared/show-upload/show-upload.component';
+firebase.initializeApp(environment.firebaseConfig);
 
 @NgModule({
   declarations: [
@@ -37,14 +48,25 @@ import { ChangePassComponent } from './user/change-pass/change-pass.component';
     HomeComponent,
     RegisterComponent,
     ChangePassComponent,
+    DropzoneDirective,
+    FileSelectDirective,
+    UploadComponent,
+    DetailsUploadComponent,
+    ListUploadComponent,
+    ShowUploadComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    AngularFireModule
   ],
   providers: [
     {
