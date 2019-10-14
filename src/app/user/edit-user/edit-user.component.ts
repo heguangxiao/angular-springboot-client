@@ -56,25 +56,20 @@ export class EditUserComponent implements OnInit {
   }
 
   changeGender(isFemale: boolean) {
-    this.form.gender = (isFemale) ? Gender.FEMALE : Gender.MALE;
+    this.updateInfo.gender = (isFemale) ? Gender.FEMALE : Gender.MALE;
   }
 
   onSubmit() {
-    if (this.currentUpload) {
       this.uploadAvatar();
-      if (this.tokenStorage.getAvatar() === this.tokenStorage.getAvatarLink()) {
-        this.updateInfo.avatarUrl = this.tokenStorage.getAvatarLink();
-      } else {
-        this.updateInfo.avatarUrl = this.tokenStorage.getAvatar();
-      }
-    }
-    this.data = toFormData(this.updateInfo);
-    this.authService.updateUserInfo(this.data).subscribe(
+      this.updateInfo.avatarUrl = this.tokenStorage.getAvatar();
+      this.data = toFormData(this.updateInfo);
+      this.authService.updateUserInfo(this.data).subscribe(
       data => {
         console.log(data);
         this.isUpdated = true;
         this.isUpdateFailed = false;
         this.tokenStorage.saveAvatarLink(data.avatarLink);
+        this.tokenStorage.deleteAvatar();
       },
       error => {
         console.log(error);

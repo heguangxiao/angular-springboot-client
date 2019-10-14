@@ -20,13 +20,13 @@
     <div class="form-group">
       <div class="form-check">
         <label class="form-check-label" for="gender-male">
-          <input id="gender-male" type="radio" class="form-check-input" name="gender" ng-value="MALE"
+          <input id="gender-male" type="radio" class="form-check-input" name="gender"
                  [checked]="updateInfo.gender == 'MALE'"  (change)="changeGender(false)">Male
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label" for="gender-female">
-          <input id="gender-female" type="radio" class="form-check-input" name="gender" ng-value="FEMALE"
+          <input id="gender-female" type="radio" class="form-check-input" name="gender"
                  [checked]="updateInfo.gender == 'FEMALE'"  (change)="changeGender(true)">Female
         </label>
       </div>
@@ -59,7 +59,7 @@
       </label>
     </div>
     <div class="form-group">
-      <button class="btn btn-primary">Update</button>
+      <button class="btn btn-primary" [disabled]="!selectedFiles">Update</button>
       <div *ngIf="f.submitted&&isUpdated" class="alert alert-success">
         Update info successfully!
       </div>

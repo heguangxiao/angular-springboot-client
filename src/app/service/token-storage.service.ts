@@ -60,6 +60,10 @@ export class TokenStorageService {
     window.localStorage.removeItem(AVATAR_KEY);
     window.localStorage.setItem(AVATAR_KEY, avatar);
   }
+
+  public deleteAvatar() {
+    window.localStorage.removeItem(AVATAR_KEY);
+  }
   public getAvatar(): string {
     return window.localStorage.getItem(AVATAR_KEY);
   }
