@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BookService} from '../../service/book.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-history-booking',
@@ -9,10 +10,10 @@ import {BookService} from '../../service/book.service';
 export class HistoryBookingComponent implements OnInit {
   historyBooking;
   isDeleteBooking = false;
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit() {
-    this.getBookHouseByUser();
+   this.getBookHouseByUser();
   }
   getBookHouseByUser() {
     this.bookService.getBookHouseByUser().subscribe(data => {
@@ -23,7 +24,7 @@ export class HistoryBookingComponent implements OnInit {
   }
   deleteBooking(id: number) {
     this.bookService.deleteBookHouse(id).subscribe(data => {
-      this.bookService.getBookHouseByUser();
+      this.getBookHouseByUser();
     }, error => {
       this.isDeleteBooking = true;
     });

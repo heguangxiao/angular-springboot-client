@@ -22,7 +22,4 @@ export class HouseService {
     const url = `${this.apiUrl}/guest/houses`;
     return this.http.get<House[]>(url);
   }
-  rentHouse(house: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}`, house);
-  }
 }

@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" *ngIf="house">
   <div>
     <H4>House Detail</H4>
   </div>
@@ -16,7 +16,6 @@
         Bath rooms: {{house.bathRooms}} </p>
       <p><i class='fas fa-money-check-alt'></i>
         $/night: {{house.pricePerNight}} </p>
-
       <p *ngIf="house.isRented" style="color: red"><i class='fas fa-caret-square-right' ></i>
         Rented</p>
       <p *ngIf="!house.isRented" style="color: blue"><i class='fas fa-caret-square-right' ></i>
@@ -31,26 +30,26 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Check in</label>
-              <input type="text" class="form-control" formControlName="checkIn">
+              <input type="date" class="form-control" formControlName="checkIn" [(ngModel)]="checkIn">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label>Check out</label>
-              <input type="text" class="form-control" formControlName="checkOut">
+              <input (change)="getTotal()" type="date" class="form-control" formControlName="checkOut" [(ngModel)]="checkOut" >
             </div>
           </div>
         </div>
-        <input type="submit" class="btn btn-danger book" value="Booking">
+        <button class="btn btn-danger book">Booking</button>
         <div>
-          Total : {{house.pricePerNight}}$
-        </div>
-        <div>
-          <a class="btn badge-dark" [routerLink]="[ '/', 'history']">History Booking</a>
+          Total : {{total}};
         </div>
       </form>
+      <div>getTotal
+        <button class="btn btn-outline-primary" [routerLink]="[ '/', 'history']">History Booking</button>
+      </div>
       <div *ngIf="booked && booking" class="alert alert-success">
-        You are booked this house successfully
+        You are booked this house successfully get Total
       </div>
       <div *ngIf="!booked && booking" class="alert alert-danger">
         You are booked this house fail

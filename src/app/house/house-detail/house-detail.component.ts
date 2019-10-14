@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {House} from '../../class/House';
 import {BookHouse} from '../../class/bookHouse';
@@ -20,6 +20,10 @@ function compareTwoDates(c: AbstractControl) {
 })
 
 export class HouseDetailComponent implements OnInit {
+  @Input()
+  checkIn = new Date();
+  @Input()
+  checkOut = new Date();
   id: number;
   house: House;
   errorMessage: string;
@@ -31,6 +35,7 @@ export class HouseDetailComponent implements OnInit {
   authority = false;
   isRented;
   booking;
+  total: number;
   minDate = new Date();
   error: any = {isError: false, errorMessage: ''};
 
@@ -39,6 +44,11 @@ export class HouseDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getHouseInfo();
+  }
+
+
+  getHouseInfo() {
     this.house = new House();
     this.id = this.route.snapshot.params.id;
     this.houseService.getHouseInfoById(this.id)
@@ -49,9 +59,7 @@ export class HouseDetailComponent implements OnInit {
       checkIn: ['', [Validators.required, Validators.min(this.minDate.getTime())]],
       checkOut: ['', [Validators.required]]
     });
-    if (this.token.getToken()) {
-      this.authority = true;
-    }
+
   }
 
   onBooking() {
@@ -68,5 +76,12 @@ export class HouseDetailComponent implements OnInit {
         this.booked = false;
       }
     );
+    if (this.token.getToken()) {
+      this.authority = true;
+    }
+  }
+  getTotal() {
+    this.total = (this.checkOut.getTime() - this.checkIn.getTime()) / (24 * 3600 * 1000);
+    return this.house.pricePerNight * this.total;
   }
 }
