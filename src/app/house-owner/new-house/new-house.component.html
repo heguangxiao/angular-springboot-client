@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <h3 style="text-align: center">New HouseOwner</h3>
+  <form novalidate [formGroup]="newHouseForm" (ngSubmit)="newHouse()">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="custom-file" style="width: 18em">
+          <img [src]="imageUrl"  style="width:250px;height:200px">
+          <input type="file" (change)="handleFileInput($event.target.files)" formControlName="images" required>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label>Category:
+          <select class="custom-select" formControlName="category" required>
+            <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+          </select>
+        </label>
+        <label>
+          <textarea class="form-control" placeholder="description" formControlName="description" required></textarea>
+        </label>
+      </div>
+      <div class="col-md-4">
+        <label>
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required>
+        </label>
+        <label>
+          <input type="text" class="form-control" placeholder="address" formControlName="address" required>
+        </label>
+        <label>
+          <input type="number" class="form-control" placeholder="bedRooms" formControlName="bedRooms" required>
+        </label>
+        <label>
+          <input type="number" class="form-control" placeholder="bathRooms" formControlName="bathRooms" required>
+        </label>
+        <label>
+          <input type="number" class="form-control" placeholder="pricePerNight" formControlName="pricePerNight" required>
+        </label>
+      </div>
+    </div>
+    <button class="btn-large btn-submit">New HouseOwner</button>
+  </form>
+</div>

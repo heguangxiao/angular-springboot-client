@@ -1,0 +1,25 @@
+<button (click)="newHouse()" class="btn btn-info">New HouseOwner</button>
+<table class="table" *ngIf="houses">
+  <thead class="thead-light">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Address</th>
+    <th scope="col">Status</th>
+    <th scope="col">PricePerNight</th>
+    <th scope="col">Option</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let house of houses, index as i">
+    <th scope="row">{{i + 1}}</th>
+    <td >{{ house.name }}</td>
+    <td>{{ house.address }}</td>
+    <td style="color: darkblue" (click)="changeHouseStatus(house.id)">{{ house.status }}</td>
+    <td>{{ house.pricePerNight }}</td>
+    <td>
+      <button (click)="deleteHouse(house.id)" class="btn btn-danger">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
