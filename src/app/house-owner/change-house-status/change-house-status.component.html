@@ -1,0 +1,13 @@
+<div *ngIf="house">
+  <form>
+    <h3>{{house.name}}</h3>
+    <label>Status:
+      <select class="custom-select form-control" [value]="house.status">
+        <option value="{{statusA}}">{{statusA}}</option>
+        <option value="{{statusB}}">{{statusB}}</option>
+        <option value="{{statusCI}}">{{statusCI}}</option>
+        <option value="{{statusCO}}">{{statusCO}}</option>
+      </select>
+    </label>
+  </form>
+</div>
