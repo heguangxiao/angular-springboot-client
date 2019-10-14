@@ -7,5 +7,5 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular - Spring Boot - Client';
+  // title = 'Angular - Spring Boot - Client';
 }

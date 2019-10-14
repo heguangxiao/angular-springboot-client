@@ -32,6 +32,9 @@ import { DetailsUploadComponent } from './uploads/shared/details-upload/details-
 import { ListUploadComponent } from './uploads/shared/list-upload/list-upload.component';
 import { ShowUploadComponent } from './uploads/shared/show-upload/show-upload.component';
 firebase.initializeApp(environment.firebaseConfig);
+import { HouseDetailComponent } from './house/house-detail/house-detail.component';
+import { HistoryBookingComponent } from './book/history-booking/history-booking.component';
+import { ListHouseUserComponent } from './house/list-house-user/list-house-user.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,9 @@ firebase.initializeApp(environment.firebaseConfig);
     DetailsUploadComponent,
     ListUploadComponent,
     ShowUploadComponent,
+    HouseDetailComponent,
+    HistoryBookingComponent,
+    ListHouseUserComponent,
   ],
   imports: [
     BrowserModule,

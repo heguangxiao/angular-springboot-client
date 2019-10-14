@@ -10,8 +10,11 @@ import {AuthGuardService} from './service/auth-guard.service';
 import {RegisterComponent} from './user/register/register.component';
 import {ChangePassComponent} from './user/change-pass/change-pass.component';
 import {EditUserComponent} from './user/edit-user/edit-user.component';
-import {UploadComponent} from './uploads/shared/upload/upload.component';
 import {ShowUploadComponent} from './uploads/shared/show-upload/show-upload.component';
+import {HouseDetailComponent} from './house/house-detail/house-detail.component';
+import {HistoryBookingComponent} from './book/history-booking/history-booking.component';
+import {ListHouseUserComponent} from './house/list-house-user/list-house-user.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'employees', pathMatch: 'full' },
@@ -25,6 +28,9 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
   { path: 'password', component: ChangePassComponent, canActivate: [AuthGuardService] },
   { path: 'editUser', component: EditUserComponent, canActivate: [AuthGuardService] },
+  {path: 'houseDetail/:id', component: HouseDetailComponent, canActivate: [AuthGuardService]},
+  {path: 'history', component: HistoryBookingComponent, canActivate: [AuthGuardService]},
+  {path: 'listHouse', component: ListHouseUserComponent, canActivate: [AuthGuardService]},
   { path: 'upload', component: ShowUploadComponent},
 ];
 
