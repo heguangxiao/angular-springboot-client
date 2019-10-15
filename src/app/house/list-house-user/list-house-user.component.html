@@ -20,7 +20,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let house of listHouse | async | filter:searchText">
+      <tr *ngFor="let house of listHouse | async | listFilterPipe:searchText">
         <td>{{house.name}}</td>
         <td>{{house.address}}</td>
         <td>{{house.bedRooms}}</td>
