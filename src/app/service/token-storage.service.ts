@@ -5,6 +5,7 @@ const USERNAME_KEY = 'AuthUsername';
 const AUTHORITIES_KEY = 'AuthAuthorities';
 const AVATAR_LINK_KEY = 'AvatarLink';
 const AVATAR_KEY = 'Avatar';
+const IMAGES_KEY = 'Images';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,7 @@ export class TokenStorageService {
     }
     return this.roles;
   }
+
   public saveAvatarLink(avatarLink: string) {
     window.localStorage.removeItem(AVATAR_LINK_KEY);
     window.localStorage.setItem(AVATAR_LINK_KEY, avatarLink);
@@ -65,6 +67,17 @@ export class TokenStorageService {
     window.localStorage.removeItem(AVATAR_KEY);
   }
   public getAvatar(): string {
+    return window.localStorage.getItem(AVATAR_KEY);
+  }
+
+  public saveImages(images: string) {
+    window.localStorage.setItem(IMAGES_KEY, images);
+  }
+
+  public deleteImages() {
+    window.localStorage.removeItem(IMAGES_KEY);
+  }
+  public getImages(): string {
     return window.localStorage.getItem(AVATAR_KEY);
   }
 }

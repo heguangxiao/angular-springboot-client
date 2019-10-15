@@ -44,6 +44,23 @@ export class UploadComponent implements OnInit {
     );
   }
 
+  uploadM() {
+    const files = this.selectedFiles;
+    this.selectedFiles = undefined;
+    const filesIndex = _.range(files.length);
+    _.each(filesIndex, (idx) => {
+      this.currentUpload = new Upload(files[idx]);
+      this.upSvc.pushFileToStorage(this.currentUpload).subscribe(
+        percentage => {
+          this.percentage = Math.round(percentage);
+        },
+        error => {
+          console.log(error);
+        }
+      ); }
+    );
+  }
+
   uploadSingle() {
     const file = this.selectedFiles.item(0);
     this.currentUpload = new Upload(file);

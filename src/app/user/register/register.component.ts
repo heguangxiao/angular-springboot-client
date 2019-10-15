@@ -21,19 +21,25 @@ export class RegisterComponent implements OnInit {
   rePassword = '';
   name = '';
   email = '';
+  message = '';
 
   ngOnInit() {
   }
 
   onSubmit() {
+    if (this.password === this.rePassword) {
       this.authService.signUp(this.name, this.username, this.email, this.password).subscribe(
         data => {
           this.isSignedUp = true;
         },
         error => {
           this.isSignUpFailed = true;
+          this.message = error;
         }
       );
+    } else {
+      this.message = 'Confim password is failed';
+    }
   }
 
 }
