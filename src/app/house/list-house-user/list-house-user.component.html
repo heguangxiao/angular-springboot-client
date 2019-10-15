@@ -1,38 +1,47 @@
-<div class="panel panel-primary">
+<div class="panel panel-primary" xmlns="http://www.w3.org/1999/html">
   <div class="panel-heading text-center" >
     <h2>House List</h2>
   </div>
   <div class="container panel-body">
     <div class="row">
-      <div class="search-hero">
-        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Searching for a house ">
+      <div class="col-2">
+        <label>Search By</label>
       </div>
-
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>bedRooms</th>
-        <th>bathRooms</th>
-        <th>pricePerNight</th>
-        <th>images</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let house of listHouse | async | filter:searchText">
-        <td>{{house.name}}</td>
-        <td>{{house.address}}</td>
-        <td>{{house.bedRooms}}</td>
-        <td>{{house.bathRooms}}</td>
-        <td>{{house.pricePerNight}}</td>
-        <td>{{house.images}}</td>
-        <td>
-          <button (click)="houseDetail(house.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+      <div class="search-hero col-10">
+        <input type="text" placeholder="House Name" class="col-1"  [(ngModel)]="houseFilter.name" >
+        <input type="text" placeholder="Address" class="col-2"  [(ngModel)]="houseFilter.address" >
+        <input type="number" placeholder="Bed Rooms" class="col-1" [(ngModel)]="houseFilter.bedRooms">
+        <input type="number" placeholder="Bath Rooms" class="col-1"  [(ngModel)]="houseFilter.bathRooms" >
+        <input type="number" placeholder="Min Price" class="col-2"  [(ngModel)]="houseFilter.minPrice" min="0" #minPrice>
+        <input type="number" placeholder="Max Price" class="col-2"  [(ngModel)]="houseFilter.maxPrice" min= "{{minPrice.value}}" #maxPrice>
+      </div>
+      <div class="row">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>bedRooms</th>
+            <th>bathRooms</th>
+            <th>pricePerNight</th>
+            <th>images</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let house of listHouse | async | listFilterPipe: houseFilter">
+            <td>{{house.name}}</td>
+            <td>{{house.address}}</td>
+            <td>{{house.bedRooms}}</td>
+            <td>{{house.bathRooms}}</td>
+            <td>{{house.pricePerNight}}</td>
+            <td>{{house.images}}</td>
+            <td>
+              <button (click)="houseDetail(house.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
   </div>
   </div>
 </div>

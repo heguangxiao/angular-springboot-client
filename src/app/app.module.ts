@@ -31,6 +31,7 @@ import { HouseDetailComponent } from './house/house-detail/house-detail.componen
 import { HistoryBookingComponent } from './book/history-booking/history-booking.component';
 import { ListHouseUserComponent } from './house/list-house-user/list-house-user.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ListFilterPipePipe } from './list-filter-pipe.pipe';
 
 import { HouseOwnerComponent } from './house-owner/house-owner.component';
 import { NewHouseComponent } from './house-owner/new-house/new-house.component';
@@ -57,6 +58,7 @@ import {FileSelectDirective} from 'ng2-file-upload';
     HouseDetailComponent,
     HistoryBookingComponent,
     ListHouseUserComponent,
+    ListFilterPipePipe,
     HouseOwnerComponent,
     NewHouseComponent,
     ChangeHouseStatusComponent,
