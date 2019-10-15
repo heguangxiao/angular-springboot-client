@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {EmployeeListComponent} from './employee/employee-list/employee-list.component';
+import {HomeComponent} from './employee/home/home.component';
 import {CreateEmployeeComponent} from './employee/create-employee/create-employee.component';
 import {UpdateEmployeeComponent} from './employee/update-employee/update-employee.component';
 import {EmployeeDetailsComponent} from './employee/employee-details/employee-details.component';
@@ -22,8 +22,8 @@ import {ChangeHouseStatusComponent} from './house-owner/change-house-status/chan
 const routes: Routes = [
   // { path: '', redirectTo: 'employees', pathMatch: 'full' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'employees', component: EmployeeListComponent },
-  { path: 'home', component: EmployeeListComponent },
+  { path: 'employees', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'add', component: CreateEmployeeComponent, canActivate: [AuthGuardService] },
   { path: 'update/:id', component: UpdateEmployeeComponent, canActivate: [AuthGuardService] },
   { path: 'details/:id', component: EmployeeDetailsComponent, canActivate: [AuthGuardService] },

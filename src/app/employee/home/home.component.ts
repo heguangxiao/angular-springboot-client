@@ -11,10 +11,10 @@ import {TokenStorageService} from '../../service/token-storage.service';
 
 @Component({
   selector: 'app-employee-list',
-  templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.css']
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class EmployeeListComponent implements OnInit {
+export class HomeComponent implements OnInit {
   employees: Observable<Employee[]>;
   listHouse: House [];
 

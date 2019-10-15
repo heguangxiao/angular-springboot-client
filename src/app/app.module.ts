@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
 import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
-import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { HomeComponent } from './employee/home/home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -37,14 +37,13 @@ import { ListHouseUserComponent } from './house/list-house-user/list-house-user.
 import { HouseOwnerComponent } from './house-owner/house-owner.component';
 import { NewHouseComponent } from './house-owner/new-house/new-house.component';
 import { ChangeHouseStatusComponent } from './house-owner/change-house-status/change-house-status.component';
-import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateEmployeeComponent,
     EmployeeDetailsComponent,
-    EmployeeListComponent,
+    HomeComponent,
     UpdateEmployeeComponent,
     HeaderComponent,
     FooterComponent,
@@ -65,7 +64,6 @@ import { HomeComponent } from './home/home.component';
     HouseOwnerComponent,
     NewHouseComponent,
     ChangeHouseStatusComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,
