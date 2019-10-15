@@ -44,6 +44,17 @@ export class AuthenticationService {
     return !(usernameOrEmail === null);
   }
 
+  isAdminAndPmOrUser() {
+    if (this.isUserLoggedIn()) {
+      const role = this.tokenStorage.getAuthorities();
+      if (role === 'ROLE_ADMIN' || role === 'ROLE_PM') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
   logOut() {
     this.tokenStorage.signOut();
   }

@@ -45,6 +45,26 @@ export class UploadService {
     return uploadTask.percentageChanges();
   }
 
+  pushFilesToStorage(fileUpload: Upload): Observable<any> {
+    const filePath = `${this.basePath}/${fileUpload.file.name}`;
+    const storageRef = this.storage.ref(filePath);
+    const uploadTask = this.storage.upload(filePath, fileUpload.file);
+
+    uploadTask.snapshotChanges().pipe(
+      finalize(() => {
+        storageRef.getDownloadURL().subscribe(downloadURL => {
+          console.log('File available at', downloadURL);
+          fileUpload.url = downloadURL;
+          fileUpload.name = fileUpload.file.name;
+          this.saveFileData(fileUpload);
+          this.token.saveImages(fileUpload.url);
+          console.log(fileUpload.url);
+        });
+      })
+    ).subscribe();
+    return uploadTask.percentageChanges();
+  }
+
   getFileUploads(numberItems): AngularFireList<Upload> {
     return this.db.list(this.basePath, ref =>
       ref.limitToLast(numberItems));
