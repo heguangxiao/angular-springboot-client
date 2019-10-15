@@ -1,3 +1,5 @@
+import {Category} from './category';
+
 export class House {
   id: number;
   name: string;
@@ -9,11 +11,11 @@ export class House {
   images: string[];
   isRented: boolean;
   status: string;
-  category: string;
+  category: Category;
 
 
   constructor(name?: string, address?: string, bedRooms?: number, bathRooms?: number, description?: string,
-              pricePerNight?: number, category?: string, images?: string[], isRented?: boolean, status?: string, id?: number) {
+              pricePerNight?: number, category?: Category, images?: string[], isRented?: boolean, status?: string, id?: number) {
     this.id = id;
     this.name = name;
     this.address = address;
