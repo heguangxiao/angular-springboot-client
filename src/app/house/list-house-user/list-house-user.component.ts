@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 })
 export class ListHouseUserComponent implements OnInit {
   listHouse: Observable<House[]>;
+  searchText;
   constructor(private houseService: HouseService, private loginService: AuthenticationService,
               private router: Router) { }
 

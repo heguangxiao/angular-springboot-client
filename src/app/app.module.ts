@@ -24,6 +24,8 @@ import { ChangePassComponent } from './user/change-pass/change-pass.component';
 import { HouseDetailComponent } from './house/house-detail/house-detail.component';
 import { HistoryBookingComponent } from './book/history-booking/history-booking.component';
 import { ListHouseUserComponent } from './house/list-house-user/list-house-user.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { ListHouseUserComponent } from './house/list-house-user/list-house-user.
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     {
