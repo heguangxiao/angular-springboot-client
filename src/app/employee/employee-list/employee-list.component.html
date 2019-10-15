@@ -1,29 +1,241 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2>Employee List</h2>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="https://pngimage.net/wp-content/uploads/2018/05/airbnb-logo-white-png-4.png" width="100px" height="40"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+        <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a></li>
+        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/houseOwner" class="nav-link">List House lease</a></li>
+        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/editUser" class="nav-link">Edit Info</a></li>
+        <li>
+          <div class="btn-group" *ngIf="loginService.isUserLoggedIn()">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name</button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button class="dropdown-item" type="button" (click)="newHouse()">New house</button>
+              <button class="dropdown-item" type="button" routerLink="/password">Change Password</button>
+              <button class="dropdown-item" type="button" routerLink="/logout">Log Out</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="panel-body">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-        <th>Actions</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let employee of employees | async">
-        <td>{{employee.firstName}}</td>
-        <td>{{employee.lastName}}</td>
-        <td>{{employee.emailId}}</td>
-        <td>
-          <button *ngIf="loginService.isUserLoggedIn()" (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
-          <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
-          <button (click)="updateEmployee(employee.id)" class="btn btn-warning" style="margin-left: 10px">Edit</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+</nav>
+
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('https://datviettour.com.vn/uploads/images/tin-tuc/Tin-mo-ta-danh-muc-tour/du-lich-he/du-lich-he-phu-quoc.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">booking experience </h3>
+          <p class="lead">a reputable quality website</p>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('http://thuthuatphanmem.vn/uploads/2018/05/18/hinh-nen-full-hd-1080-bai-bien-xanh-ngat_022854175.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <p class="lead">This is a description for the second slide.</p>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://mktravel.com.vn/assets/image/product_main/autox540/truong-gia-gioi-phu-dung-tran-phuong-hoang-co-tran.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">Home away from home</h3>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</header>
+
+<!-- Page Content -->
+<section class="py-5">
+  <div class="container text-center">
+    <h1 class="font-weight-light">AIRBNB</h1>
+    <p class="lead">Welcome to airbnb a place for real lux an confortable Holday!</p>
+  </div>
+</section>
+<!-- Page Content -->
+<div class="container">
+  <div class="col-lg-12">
+
+    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Our Popular Destinations</h1>
+    <hr class="mt-2 mb-5">
+    <div class="row text-center text-info-left">
+      <div class="col-lg-6 col-md-4 col-6 p-1">
+        <a href="#" class="d-block  h-100">
+          <img class="img-fluid w-100" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="">
+        </a>
+        <div class="card-img-overlay col-lg-auto">
+          <h2 class="ugali">Việt Nam</h2>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-6 p-1">
+        <a href="#" class="d-block mb-4 h-100">
+          <img class="img-fluid" src="https://source.unsplash.com/aob0ukAYfuI/400x300" alt="">
+
+        </a>
+        <div class="card-img-overlay  text-white">
+          <h2 class="ugali">USA</h2>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-6 p-1">
+        <a href="#" class="d-block h-100">
+          <img class="img-fluid " src="https://source.unsplash.com/EUfxH-pze7s/400x300" alt="">
+        </a>
+        <div class="card-img-overlay text-white">
+          <h2>Arusha</h2>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-6 p-1">
+        <a href="#" class="d-block  h-100">
+          <img class="img-fluid" src="https://source.unsplash.com/M185_qYH8vg/400x300" alt="">
+        </a>
+        <div class="card-img-overlay text-white">
+          <h2 class="ugali">Thai lan</h2>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-6 p-1">
+        <a href="#" class="d-block mb-4 h-100">
+          <img class="img-fluid" src="https://source.unsplash.com/sesveuG_rNo/400x300" alt="">
+        </a>
+        <div class="card-img-overlay text-white">
+          <h2 class="ugali">China</h2>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-8 col-8 p-1">
+        <a href="#" class="d-block  h-100">
+          <img class="img-fluid w-100 fix-im" src="https://source.unsplash.com/AvhMzHwiE_0/400x300" alt="">
+        </a>
+        <div class="card-img-overlay text-white">
+          <h2 class="ugali">Việt Nam</h2>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-8 col-6 p-1 fix-im">
+        <a href="#" class="d-block  h-100">
+          <img class="img-fluid" src="https://source.unsplash.com/sesveuG_rNo/400x300" alt="">
+        </a>
+        <div class="card-img-overlay text-white">
+          <h2 class="ugali">Việt Nam</h2>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-8 p-1">
+        <a href="#" class="d-block  h-100">
+          <img class="img-fluid fix-im" src="https://source.unsplash.com/AvhMzHwiE_0/400x300" alt="">
+        </a>
+        <div class="card-img-overlay text-white">
+          <h2 class="ugali">Việt Nam</h2>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-6 p-1">
+        <a href="#" class="d-block  h-100">
+          <img class="img-fluid fix-im" src="https://source.unsplash.com/2gYsZUmockw/400x300" alt="">
+        </a>
+        <div class="card-img-overlay text-white">
+          <h2 class="ugali">IRan</h2>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<!-- /.container -->
+<!-- Header -->
+<header class="bg-primary text-center py-5 mb-4">
+  <div class="container">
+    <h1 class="font-weight-light text-white">Book now for 10% off</h1>
+  </div>
+</header>
+
+<!-- Page Content -->
+<div class="container py-4 mt-4">
+
+  <!-- Page Heading -->
+  <p class="lead ">Our suggestions</p>
+
+  <div class="row mt-4">
+    <div class="col-lg-4 col-sm-6 mb-4"  *ngFor="let list of listHouse">
+      <div class="card shadow border-0 h-100">
+<!--        lấy ảnh vào đây-->
+        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+<!--        hết ảnh-->
+        <div class="card-body">
+          <h4 class="card-title">
+            <a [routerLink]="['', 'houseDetail', list.id]">{{list.name}}</a>
+          </h4>
+          <p class="card-text">{{list.pricePerNight}}$</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="container py-4 mt-4">
+  <p class="display-3">Meet our Hotel Team</p>
+  <div class="row">
+    <!-- Team Member 1 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="https://source.unsplash.com/TMgQMXoglsM/500x350" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">Heguangxiao</h5>
+          <div class="card-text text-black-50">Web Developer</div>
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 2 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="https://cdn.tuoitre.vn/thumb_w/640/2019/4/23/clip-1555986270962142129187.jpg" class="card-img-top" >
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">Lê Công Dũng</h5>
+          <div class="card-text text-black-50">Web Developer</div>
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 3 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="https://source.unsplash.com/sNut2MqSmds/500x350" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">Lê Đức Hạnh</h5>
+          <div class="card-text text-black-50">Web Developer</div>
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 4 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="https://s1.thcdn.com/productimg/1600/1600/11520648-3584532226519573.png" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">Vũ Minh Đức</h5>
+          <div class="card-text text-black-50">Web Developer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+
+
+

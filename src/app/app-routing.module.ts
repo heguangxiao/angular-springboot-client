@@ -20,8 +20,10 @@ import {ChangeHouseStatusComponent} from './house-owner/change-house-status/chan
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'employees', pathMatch: 'full' },
+  // { path: '', redirectTo: 'employees', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'employees', component: EmployeeListComponent },
+  { path: 'home', component: EmployeeListComponent },
   { path: 'add', component: CreateEmployeeComponent, canActivate: [AuthGuardService] },
   { path: 'update/:id', component: UpdateEmployeeComponent, canActivate: [AuthGuardService] },
   { path: 'details/:id', component: EmployeeDetailsComponent, canActivate: [AuthGuardService] },
@@ -31,7 +33,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
   { path: 'password', component: ChangePassComponent, canActivate: [AuthGuardService] },
   { path: 'editUser', component: EditUserComponent, canActivate: [AuthGuardService] },
-  {path: 'houseDetail/:id', component: HouseDetailComponent, canActivate: [AuthGuardService]},
+  {path: 'houseDetail/:id', component: HouseDetailComponent},
   {path: 'history', component: HistoryBookingComponent, canActivate: [AuthGuardService]},
   {path: 'listHouse', component: ListHouseUserComponent, canActivate: [AuthGuardService]},
   { path: 'upload', component: ShowUploadComponent},

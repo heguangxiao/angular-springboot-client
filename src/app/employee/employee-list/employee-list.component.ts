@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Employee} from '../../class/employee';
 import {EmployeeService} from '../../service/employee.service';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../../service/authentication.service';
+import {House} from '../../class/House';
+import {BookService} from '../../service/book.service';
+import {HouseService} from '../../service/house.service';
+import {TokenStorageService} from '../../service/token-storage.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -11,19 +15,30 @@ import {AuthenticationService} from '../../service/authentication.service';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-
   employees: Observable<Employee[]>;
+  listHouse: House [];
 
   constructor(private employeeService: EmployeeService,
               private router: Router,
-              private loginService: AuthenticationService) {}
+              private loginService: AuthenticationService,
+              private  houseService: HouseService,
+  ) {
+  }
 
   ngOnInit() {
     this.reloadData();
   }
 
+  newHouse() {
+    this.router.navigate(['newhouse']);
+  }
+
   reloadData() {
-    this.employees = this.employeeService.getEmployeesList();
+    this.houseService.getListHouse().subscribe(house => {
+      this.listHouse = house;
+    }, error => {
+      console.log(error);
+    });
   }
 
   deleteEmployee(id: number) {
@@ -36,11 +51,8 @@ export class EmployeeListComponent implements OnInit {
         error => console.log(error));
   }
 
-  updateEmployee(id: number) {
-    this.router.navigate(['edit', id]);
-  }
-  employeeDetails(id: number) {
-    this.router.navigate(['details', id]);
+  houseDetail(id: number) {
+    this.router.navigate(['houseDetail', id]);
   }
 
 }

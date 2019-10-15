@@ -18,7 +18,6 @@ import {environment} from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
-import { HomeComponent } from './home/home.component';
 import {RegisterComponent} from './user/register/register.component';
 import { ChangePassComponent } from './user/change-pass/change-pass.component';
 import {AngularFireStorageModule} from '@angular/fire/storage';
@@ -38,6 +37,7 @@ import { ListHouseUserComponent } from './house/list-house-user/list-house-user.
 import { HouseOwnerComponent } from './house-owner/house-owner.component';
 import { NewHouseComponent } from './house-owner/new-house/new-house.component';
 import { ChangeHouseStatusComponent } from './house-owner/change-house-status/change-house-status.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,6 @@ import { ChangeHouseStatusComponent } from './house-owner/change-house-status/ch
     LoginComponent,
     LogoutComponent,
     EditUserComponent,
-    HomeComponent,
     RegisterComponent,
     ChangePassComponent,
     DropzoneDirective,
@@ -66,6 +65,7 @@ import { ChangeHouseStatusComponent } from './house-owner/change-house-status/ch
     HouseOwnerComponent,
     NewHouseComponent,
     ChangeHouseStatusComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
