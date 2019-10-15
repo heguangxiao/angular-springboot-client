@@ -12,7 +12,6 @@ import {Category} from '../../class/category';
 export class NewHouseComponent implements OnInit {
 
   imageUrl = '../../assets/img/default-image.png';
-  fileToUpload: File = null;
   categories: Category[];
   newHouseForm: FormGroup;
 
@@ -24,16 +23,6 @@ export class NewHouseComponent implements OnInit {
   ngOnInit() {
     this.createHouseForm();
     this.getCategories();
-  }
-
-  handleFileInput(file: FileList) {
-    this.fileToUpload = file.item(0);
-    // Show image preview
-    const reader = new FileReader();
-    reader.onload = (event: any) => {
-      this.imageUrl = event.target.result;
-    };
-    reader.readAsDataURL(this.fileToUpload);
   }
 
   getCategories() {
@@ -64,10 +53,8 @@ export class NewHouseComponent implements OnInit {
   newHouse() {
     const formData: FormData = new FormData();
     const homePostInformation = this.newHouseForm.value;
-    homePostInformation.images = this.fileToUpload.name;
     formData.append('name', homePostInformation.name);
     formData.append('address', homePostInformation.address);
-    formData.append('images', homePostInformation.images);
     formData.append('bedRooms', homePostInformation.bedRooms);
     formData.append('bathRooms', homePostInformation.bathRooms);
     formData.append('description', homePostInformation.description);
