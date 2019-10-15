@@ -3,11 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
-import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
-import { HomeComponent } from './employee/home/home.component';
+import { HomeComponent } from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -43,10 +40,7 @@ import {FileSelectDirective} from 'ng2-file-upload';
 @NgModule({
   declarations: [
     AppComponent,
-    CreateEmployeeComponent,
-    EmployeeDetailsComponent,
     HomeComponent,
-    UpdateEmployeeComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,

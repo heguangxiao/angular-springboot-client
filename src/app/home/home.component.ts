@@ -1,13 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Employee} from '../../class/employee';
-import {EmployeeService} from '../../service/employee.service';
+import {Employee} from '../class/employee';
+import {EmployeeService} from '../service/employee.service';
 import {Router} from '@angular/router';
-import {AuthenticationService} from '../../service/authentication.service';
-import {House} from '../../class/House';
-import {BookService} from '../../service/book.service';
-import {HouseService} from '../../service/house.service';
-import {TokenStorageService} from '../../service/token-storage.service';
+import {AuthenticationService} from '../service/authentication.service';
+import {House} from '../class/House';
+import {HouseService} from '../service/house.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -17,6 +15,7 @@ import {TokenStorageService} from '../../service/token-storage.service';
 export class HomeComponent implements OnInit {
   employees: Observable<Employee[]>;
   listHouse: House [];
+  searchText;
 
   constructor(private employeeService: EmployeeService,
               private router: Router,
