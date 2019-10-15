@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {AuthenticationService} from '../service/authentication.service';
 import {House} from '../class/House';
 import {HouseService} from '../service/house.service';
+import {TokenStorageService} from '../service/token-storage.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -16,16 +17,22 @@ export class HomeComponent implements OnInit {
   employees: Observable<Employee[]>;
   listHouse: House [];
   searchText;
+  username = '';
 
   constructor(private employeeService: EmployeeService,
               private router: Router,
               private loginService: AuthenticationService,
-              private  houseService: HouseService,
+              private houseService: HouseService,
+              private tokenService: TokenStorageService
   ) {
   }
 
   ngOnInit() {
+    alert(this.tokenService.getUsername().toString());
     this.reloadData();
+    if (this.loginService.isUserLoggedIn()) {
+      this.username = this.tokenService.getUsername().toString();
+    }
   }
 
   newHouse() {
