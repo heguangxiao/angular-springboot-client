@@ -1,8 +1,13 @@
 <div class="panel panel-primary">
-  <div class="panel-heading">
+  <div class="panel-heading text-center" >
     <h2>House List</h2>
   </div>
-  <div class="panel-body">
+  <div class="container panel-body">
+    <div class="row">
+      <div class="search-hero">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Searching for a house ">
+      </div>
+
     <table class="table table-striped">
       <thead>
       <tr>
@@ -15,7 +20,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let house of listHouse | async">
+      <tr *ngFor="let house of listHouse | async | filter:searchText">
         <td>{{house.name}}</td>
         <td>{{house.address}}</td>
         <td>{{house.bedRooms}}</td>
@@ -28,5 +33,6 @@
       </tr>
       </tbody>
     </table>
+  </div>
   </div>
 </div>

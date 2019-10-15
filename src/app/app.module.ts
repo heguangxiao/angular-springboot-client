@@ -34,6 +34,8 @@ firebase.initializeApp(environment.firebaseConfig);
 import { HouseDetailComponent } from './house/house-detail/house-detail.component';
 import { HistoryBookingComponent } from './book/history-booking/history-booking.component';
 import { ListHouseUserComponent } from './house/list-house-user/list-house-user.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { HouseOwnerComponent } from './house-owner/house-owner.component';
 import { NewHouseComponent } from './house-owner/new-house/new-house.component';
 import { ChangeHouseStatusComponent } from './house-owner/change-house-status/change-house-status.component';
@@ -75,6 +77,8 @@ import {FileSelectDirective} from 'ng2-file-upload';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
