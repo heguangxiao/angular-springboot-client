@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
 import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
-import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { HomeComponent } from './employee/home/home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -18,7 +18,6 @@ import {environment} from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
-import { HomeComponent } from './home/home.component';
 import {RegisterComponent} from './user/register/register.component';
 import { ChangePassComponent } from './user/change-pass/change-pass.component';
 import {AngularFireStorageModule} from '@angular/fire/storage';
@@ -46,14 +45,13 @@ import {FileSelectDirective} from 'ng2-file-upload';
     AppComponent,
     CreateEmployeeComponent,
     EmployeeDetailsComponent,
-    EmployeeListComponent,
+    HomeComponent,
     UpdateEmployeeComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
     LogoutComponent,
     EditUserComponent,
-    HomeComponent,
     RegisterComponent,
     ChangePassComponent,
     DropzoneDirective,
