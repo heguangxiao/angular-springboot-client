@@ -25,7 +25,6 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { DropzoneDirective } from './directive/dropzone.directive';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
-import {FileSelectDirective} from 'ng2-file-upload';
 import { UploadComponent } from './uploads/shared/upload/upload.component';
 import * as firebase from 'firebase';
 import { DetailsUploadComponent } from './uploads/shared/details-upload/details-upload.component';
@@ -38,6 +37,7 @@ import { ListHouseUserComponent } from './house/list-house-user/list-house-user.
 import { HouseOwnerComponent } from './house-owner/house-owner.component';
 import { NewHouseComponent } from './house-owner/new-house/new-house.component';
 import { ChangeHouseStatusComponent } from './house-owner/change-house-status/change-house-status.component';
+import {FileSelectDirective} from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
