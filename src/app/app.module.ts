@@ -26,6 +26,8 @@ import { HistoryBookingComponent } from './book/history-booking/history-booking.
 import { ListHouseUserComponent } from './house/list-house-user/list-house-user.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ListFilterPipePipe } from './list-filter-pipe.pipe';
+import { GoogleMapComponent } from './google-map/google-map.component';
+import {AgmCoreModule} from '@agm/core';
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import { ListFilterPipePipe } from './list-filter-pipe.pipe';
     HistoryBookingComponent,
     ListHouseUserComponent,
     ListFilterPipePipe,
+    GoogleMapComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,11 @@ import { ListFilterPipePipe } from './list-filter-pipe.pipe';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AgmCoreModule.forRoot({
+     apiKey: 'AIzaSyAW5i6eXNqVH2VceU6JAznJkMOzr33FE0c',
+      libraries: ['places']
+    })
   ],
   providers: [
     {

@@ -1,4 +1,13 @@
 <app-header></app-header>
+<!-- app.component.html -->
+<agm-map
+  [latitude]="latitude"
+  [longitude]="longitude"
+  [zoom]="zoom" >
+  <agm-marker
+    [latitude]="latitude"
+    [longitude]="longitude"></agm-marker>
+</agm-map>
 
 <div class="container">
   <br>
