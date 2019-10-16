@@ -9,13 +9,14 @@
         <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
         <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a></li>
         <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/listHouse" class="nav-link">List House</a></li>
-        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/editUser" class="nav-link">Edit Info</a></li>
         <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/history" class="nav-link">History Booking</a></li>
+        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/houseOwner" class="nav-link">List House lease</a></li>
+        <li><a *ngIf="loginService.isUserLoggedIn()" (click)="newHouse()" class="nav-link">New house</a></li>
         <li>
           <div class="btn-group" *ngIf="loginService.isUserLoggedIn()">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name</button>
-            <div class="dropdown-menu dropdown-menu-right">
-              <button class="dropdown-item" type="button" (click)="newHouse()">New house</button>
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+            <div class="dropdown-menu dropdown-menu-right" *ngIf="loginService.isUserLoggedIn()">
+              <button class="dropdown-item" type="button" routerLink="/editUser">Edit Info</button>
               <button class="dropdown-item" type="button" routerLink="/password">Change Password</button>
               <button class="dropdown-item" type="button" routerLink="/logout">Log Out</button>
             </div>
