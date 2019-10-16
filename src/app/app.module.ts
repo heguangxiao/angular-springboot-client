@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './user/login/login.component';
@@ -29,8 +29,9 @@ firebase.initializeApp(environment.firebaseConfig);
 import { HouseDetailComponent } from './house/house-detail/house-detail.component';
 import { HistoryBookingComponent } from './book/history-booking/history-booking.component';
 import { ListHouseUserComponent } from './house/list-house-user/list-house-user.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ListFilterPipePipe } from './list-filter-pipe.pipe';
+import {AgmCoreModule} from '@agm/core';
+
 import { HouseOwnerComponent } from './house-owner/house-owner.component';
 import { NewHouseComponent } from './house-owner/new-house/new-house.component';
 import { ChangeHouseStatusComponent } from './house-owner/change-house-status/change-house-status.component';
@@ -71,8 +72,12 @@ import { AddImageComponent } from './house-owner/add-image/add-image.component';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAW5i6eXNqVH2VceU6JAznJkMOzr33FE0c',
+      libraries: ['places']
+    }),
+    FormsModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
