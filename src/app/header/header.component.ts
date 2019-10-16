@@ -8,9 +8,12 @@ import {AuthenticationService} from '../service/authentication.service';
 })
 export class HeaderComponent implements OnInit {
 
+  checkLogin: boolean;
+
   constructor(private loginService: AuthenticationService) { }
 
   ngOnInit() {
+    this.checkLogin = this.loginService.isUserLoggedIn();
   }
 
 }

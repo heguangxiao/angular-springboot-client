@@ -2,13 +2,8 @@ import {Component, Inject, Input, OnInit} from '@angular/core';
 import {Upload} from '../../../class/upload';
 import {UploadService} from '../../../service/upload.service';
 import * as _ from 'lodash';
-import * as firebase from 'firebase';
 import {FirebaseApp} from '@angular/fire';
-import {finalize} from 'rxjs/operators';
 import {AngularFireStorage} from '@angular/fire/storage';
-import {Observable} from 'rxjs';
-// @ts-ignore
-import * as path from 'path';
 
 @Component({
   selector: 'app-upload',

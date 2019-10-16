@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   listHouse: House [];
   searchText;
   username = '';
+  checkLogin: boolean;
 
   constructor(private employeeService: EmployeeService,
               private router: Router,
@@ -31,7 +32,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
-    if (this.loginService.isUserLoggedIn()) {
+    this.checkLogin = this.loginService.isUserLoggedIn();
+    if (this.checkLogin) {
       this.username = this.tokenService.getUsername().toString();
     }
   }
