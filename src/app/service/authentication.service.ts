@@ -44,6 +44,11 @@ export class AuthenticationService {
     return !(usernameOrEmail === null);
   }
 
+  getUserLoggedIn() {
+    const usernameOrEmail = this.tokenStorage.getUsername();
+    return usernameOrEmail;
+  }
+
   isAdminAndPmOrUser() {
     if (this.isUserLoggedIn()) {
       const role = this.tokenStorage.getAuthorities();

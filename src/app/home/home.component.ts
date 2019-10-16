@@ -6,6 +6,8 @@ import {Router} from '@angular/router';
 import {AuthenticationService} from '../service/authentication.service';
 import {House} from '../class/House';
 import {HouseService} from '../service/house.service';
+import {TokenStorageService} from '../service/token-storage.service';
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-employee-list',
@@ -16,15 +18,18 @@ export class HomeComponent implements OnInit {
   employees: Observable<Employee[]>;
   listHouse: House [];
   searchText;
+  name = 'Name';
+  usernameOrEmail = this.loginService.getUserLoggedIn();
 
   constructor(private employeeService: EmployeeService,
               private router: Router,
               private loginService: AuthenticationService,
-              private  houseService: HouseService,
+              private houseService: HouseService,
   ) {
   }
 
   ngOnInit() {
+    // alert(this.usernameOrEmail + '');
     this.reloadData();
   }
 
