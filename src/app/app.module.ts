@@ -37,6 +37,7 @@ import { HouseOwnerComponent } from './house-owner/house-owner.component';
 import { NewHouseComponent } from './house-owner/new-house/new-house.component';
 import { ChangeHouseStatusComponent } from './house-owner/change-house-status/change-house-status.component';
 import {FileSelectDirective} from 'ng2-file-upload';
+import { AddImageComponent } from './house-owner/add-image/add-image.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import {FileSelectDirective} from 'ng2-file-upload';
     HouseOwnerComponent,
     NewHouseComponent,
     ChangeHouseStatusComponent,
+    AddImageComponent,
   ],
   imports: [
     BrowserModule,
