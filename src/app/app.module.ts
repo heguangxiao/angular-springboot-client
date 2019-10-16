@@ -3,11 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
-import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
-import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -24,19 +19,14 @@ import { ChangePassComponent } from './user/change-pass/change-pass.component';
 import { HouseDetailComponent } from './house/house-detail/house-detail.component';
 import { HistoryBookingComponent } from './book/history-booking/history-booking.component';
 import { ListHouseUserComponent } from './house/list-house-user/list-house-user.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ListFilterPipePipe } from './list-filter-pipe.pipe';
-import { GoogleMapComponent } from './google-map/google-map.component';
 import {AgmCoreModule} from '@agm/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateEmployeeComponent,
-    EmployeeDetailsComponent,
-    EmployeeListComponent,
-    UpdateEmployeeComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
@@ -49,21 +39,19 @@ import {AgmCoreModule} from '@agm/core';
     HistoryBookingComponent,
     ListHouseUserComponent,
     ListFilterPipePipe,
-    GoogleMapComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    ReactiveFormsModule,
-    Ng2SearchPipeModule,
     AgmCoreModule.forRoot({
-     apiKey: 'AIzaSyAW5i6eXNqVH2VceU6JAznJkMOzr33FE0c',
+      apiKey: 'AIzaSyAW5i6eXNqVH2VceU6JAznJkMOzr33FE0c',
       libraries: ['places']
-    })
+    }),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
