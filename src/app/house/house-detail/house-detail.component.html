@@ -45,9 +45,7 @@
           Total : {{house.pricePerNight}};
         </div>
       </form>
-      <div>
-        <button class="btn btn-outline-primary" [routerLink]="[ '/', 'history']">History Booking</button>
-      </div>
+
       <div *ngIf="booked && booking" class="alert alert-success">
         You are booked this house successfully
       </div>

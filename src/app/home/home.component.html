@@ -10,6 +10,7 @@
         <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a></li>
         <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/listHouse" class="nav-link">List House</a></li>
         <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/editUser" class="nav-link">Edit Info</a></li>
+        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/history" class="nav-link">History Booking</a></li>
         <li>
           <div class="btn-group" *ngIf="loginService.isUserLoggedIn()">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name</button>
