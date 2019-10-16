@@ -189,7 +189,7 @@
 </div>
 
 <!-- Page Content -->
-<div class="container py-4 mt-4">
+<div class="container py-4 mt-4" *ngIf="!loginService.isUserLoggedIn()">
   <p class="display-3">Meet our Hotel Team</p>
   <div class="row">
     <!-- Team Member 1 -->
@@ -217,7 +217,7 @@
       <div class="card border-0 shadow">
         <img src="https://source.unsplash.com/sNut2MqSmds/500x350" class="card-img-top" alt="...">
         <div class="card-body text-center">
-          <h5 class="card-title mb-0">Lê Đức Hạnh</h5>
+          <h5 class="card-title mb-0">Lê Khắc Hạnh</h5>
           <div class="card-text text-black-50">Web Developer</div>
         </div>
       </div>
