@@ -1,6 +1,4 @@
-<div *ngIf="isSignedUp; else signupForm">
-  Your registration is successful. Please login your email to confirm!
-</div>
+
 
 <ng-template #signupForm>
   <div class="container">
@@ -21,4 +19,46 @@
       Register
     </button>
   </div>
+
+<!--  <div class="col-md-4 col-md-offset-4" id="login">-->
+<!--    <section id="inner-wrapper" class="login">-->
+<!--      <article>-->
+<!--        <form>-->
+<!--          <div class="form-group">-->
+<!--            <div class="input-group">-->
+<!--              <span class="input-group-addon"><i class="fa fa-user"> </i></span>-->
+<!--              <input type="text" class="form-control" placeholder="Name" name="name" [(ngModel)]="name">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <div class="input-group">-->
+<!--              <span class="input-group-addon"><i class="fa fa-envelope"> </i></span>-->
+<!--              <input type="text" class="form-control" placeholder="User Name" name="username" [(ngModel)]="username">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <div class="input-group">-->
+<!--              <span class="input-group-addon"><i class="fa fa-key"> </i></span>-->
+<!--              <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)]="email">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <div class="input-group">-->
+<!--              <span class="input-group-addon"><i class="fa fa-key"> </i></span>-->
+<!--              <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="password">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <div class="input-group">-->
+<!--              <span class="input-group-addon"><i class="fa fa-key"> </i></span>-->
+<!--              <input type="password" class="form-control" placeholder="Confirm Password"name="rePassword" [(ngModel)]="rePassword">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <button type="submit" class="btn btn-success btn-block"  (click)=onSubmit()>Register</button>-->
+<!--        </form>-->
+<!--      </article>-->
+<!--    </section></div>-->
 </ng-template>
+<div *ngIf="isSignedUp; else signupForm">
+  Your registration is successful. Please login your email to confirm!
+</div>
