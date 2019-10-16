@@ -15,6 +15,7 @@ import {MapsAPILoader} from '@agm/core';
 export class ListHouseUserComponent implements OnInit {
   listHouse: Observable<House[]>;
   houseFilter: HouseFilter = new HouseFilter();
+
   latitude: number;
   longitude: number;
   zoom: number;
@@ -23,8 +24,8 @@ export class ListHouseUserComponent implements OnInit {
   public searchElementRef: ElementRef;
   constructor(private houseService: HouseService, private loginService: AuthenticationService,
               private router: Router, private mapsAPILoader: MapsAPILoader,
-              private ngZone: NgZone) { }
-
+              private ngZone: NgZone) {
+  }
   ngOnInit() {
     this.reloadData();
     this.setCurrentLocation();
@@ -82,9 +83,11 @@ export class ListHouseUserComponent implements OnInit {
     // this.longitude = $event.coords.lng;
     this.getAddress(this.latitude, this.longitude);
   }
+
   reloadData() {
     this.listHouse = this.houseService.getListHouse();
   }
+
   houseDetail(id: number) {
     this.router.navigate(['houseDetail', id]);
   }
