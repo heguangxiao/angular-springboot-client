@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    alert(this.tokenService.getUsername().toString());
     this.reloadData();
     if (this.loginService.isUserLoggedIn()) {
       this.username = this.tokenService.getUsername().toString();

@@ -1,26 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './user/login/login.component';
 import { LogoutComponent } from './user/logout/logout.component';
-import {BasicAuthHtppInterceptorService} from './service/basic-auth-htpp-interceptor.service';
-import {environment} from '../environments/environment';
+import { BasicAuthHtppInterceptorService} from './service/basic-auth-htpp-interceptor.service';
+import { environment} from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
-import {RegisterComponent} from './user/register/register.component';
+import { RegisterComponent} from './user/register/register.component';
 import { ChangePassComponent } from './user/change-pass/change-pass.component';
-import {AngularFireStorageModule} from '@angular/fire/storage';
-import {AngularFireAuthModule} from '@angular/fire/auth';
+import { AngularFireStorageModule} from '@angular/fire/storage';
+import { AngularFireAuthModule} from '@angular/fire/auth';
 import { DropzoneDirective } from './directive/dropzone.directive';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { AngularFireDatabaseModule} from '@angular/fire/database';
 import { UploadComponent } from './uploads/shared/upload/upload.component';
 import * as firebase from 'firebase';
 import { DetailsUploadComponent } from './uploads/shared/details-upload/details-upload.component';
@@ -32,11 +31,10 @@ import { HistoryBookingComponent } from './book/history-booking/history-booking.
 import { ListHouseUserComponent } from './house/list-house-user/list-house-user.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ListFilterPipePipe } from './list-filter-pipe.pipe';
-
 import { HouseOwnerComponent } from './house-owner/house-owner.component';
 import { NewHouseComponent } from './house-owner/new-house/new-house.component';
 import { ChangeHouseStatusComponent } from './house-owner/change-house-status/change-house-status.component';
-import {FileSelectDirective} from 'ng2-file-upload';
+import { FileSelectDirective} from 'ng2-file-upload';
 import { AddImageComponent } from './house-owner/add-image/add-image.component';
 
 @NgModule({
