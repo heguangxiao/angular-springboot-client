@@ -40,7 +40,7 @@ export class HouseOwnerComponent implements OnInit {
 
   deleteHouse(id: number) {
     this.houseOwnerService.deleteHouse(id).subscribe(() => {
-      alert('You sure you want to delete');
+      window.alert('You sure you want to delete');
       this.getListHouseByUser();
     }, error => {
       console.log(error);

@@ -14,6 +14,7 @@ export class NewHouseComponent implements OnInit {
   imageUrl = '../../assets/img/default-image.png';
   categories: Category[];
   newHouseForm: FormGroup;
+  message: string;
 
   constructor(private fb: FormBuilder,
               private houseOwnerService: HouseOwnerService,
@@ -64,7 +65,7 @@ export class NewHouseComponent implements OnInit {
     console.log(formData);
     this.houseOwnerService.newHouse(formData).subscribe(
       data => {
-        console.log('successfully created house');
+        this.message = 'successfully created house';
       }, error => {
         console.log(error);
       }
