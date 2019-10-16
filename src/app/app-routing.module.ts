@@ -18,7 +18,6 @@ import {ChangeHouseStatusComponent} from './house-owner/change-house-status/chan
 
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'employees', pathMatch: 'full' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'employees', component: HomeComponent },
   { path: 'home', component: HomeComponent },
