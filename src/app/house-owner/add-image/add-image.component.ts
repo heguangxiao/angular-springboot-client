@@ -5,10 +5,14 @@ import {FirebaseApp} from '@angular/fire';
 import {Upload} from '../../class/upload';
 import {TokenStorageService} from '../../service/token-storage.service';
 import {toFormData} from '../../class/convertToForm';
-import {ImageHouse} from '../../class/image';
+import {Image} from '../../class/image';
 import {ImageService} from '../../service/image.service';
 import {HouseService} from '../../service/house.service';
 import {Observable} from 'rxjs';
+import {HouseOwnerService} from '../../service/house-owner.service';
+import {error} from 'util';
+import {ActivatedRoute} from '@angular/router';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-add-image',
@@ -22,18 +26,22 @@ export class AddImageComponent implements OnInit {
               @Inject(FirebaseApp) firebaseApp: any,
               private tokenStorage: TokenStorageService,
               private imageSvc: ImageService,
-              private houseSvc: HouseService
+              private route: ActivatedRoute
   ) {
   }
 
+  id: number;
   selectedFiles: FileList;
   currentUpload: Upload;
   percentage: number;
-  images: Observable<any>;
+  img: string;
+  image: Image = new Image();
+
+  data: FormData = new FormData();
 
   detectFiles(event) {
     this.selectedFiles = event.target.files;
-    this.uploadImages();
+    this.uploadMul();
     console.log(this.tokenStorage.getAvatar());
   }
 
@@ -47,21 +55,41 @@ export class AddImageComponent implements OnInit {
         percentage => {
           this.percentage = Math.round(percentage);
         },
-        error => {
+        error1 => {
           console.log(error);
         }
       );
   }
 
+  uploadMul() {
+    const files = this.selectedFiles;
+    this.selectedFiles = undefined;
+    const filesIndex = _.range(files.length);
+    _.each(filesIndex, (idx) => {
+      this.currentUpload = new Upload(files[idx]);
+      this.upSvc.pushFileToStorage(this.currentUpload).subscribe(
+        percentage => {
+          this.percentage = Math.round(percentage);
+        },
+        error => {
+          console.log(error);
+        }
+      ); }
+    );
+  }
+
   onSubmit() {
-    if (!this.selectedFiles) {
-      this.imageSvc.addImage(20, new ImageHouse(this.tokenStorage.getAvatar()));
+      this.img = this.tokenStorage.getAvatar();
+      this.imageSvc.addImage(this.id, this.img).subscribe(
+        next => {
+          console.log(next);
+        }, error2 => {
+          console.log(error);
     }
-
-    this.images = this.imageSvc.getImageListHouse(20);
-
+      );
   }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params.id;
   }
 }

@@ -15,6 +15,7 @@ import {ListHouseUserComponent} from './house/list-house-user/list-house-user.co
 import {HouseOwnerComponent} from './house-owner/house-owner.component';
 import {NewHouseComponent} from './house-owner/new-house/new-house.component';
 import {ChangeHouseStatusComponent} from './house-owner/change-house-status/change-house-status.component';
+import {AddImageComponent} from './house-owner/add-image/add-image.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'houseOwner', component: HouseOwnerComponent, canActivate: [AuthGuardService] },
   { path: 'newhouse', component: NewHouseComponent, canActivate: [AuthGuardService] },
   { path: 'statushouse/:id', component: ChangeHouseStatusComponent, canActivate: [AuthGuardService] },
+  { path: 'addImage/:id', component: AddImageComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

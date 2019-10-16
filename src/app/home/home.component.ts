@@ -7,6 +7,7 @@ import {AuthenticationService} from '../service/authentication.service';
 import {House} from '../class/House';
 import {HouseService} from '../service/house.service';
 import {TokenStorageService} from '../service/token-storage.service';
+import {ImageService} from '../service/image.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -23,7 +24,8 @@ export class HomeComponent implements OnInit {
               private router: Router,
               private loginService: AuthenticationService,
               private houseService: HouseService,
-              private tokenService: TokenStorageService
+              private tokenService: TokenStorageService,
+              private imageSvc: ImageService
   ) {
   }
 

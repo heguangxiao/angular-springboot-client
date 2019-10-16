@@ -1,9 +1,15 @@
-export class ImageHouse {
+export class Image {
   id?: number;
   imageUrl: string;
 
+  constructor() {
+  }
 
-  constructor(imageUrl: string) {
-    this.imageUrl = imageUrl;
+  setImageUrl(image: string) {
+    this.imageUrl = image;
+  }
+
+  getImageUrl() {
+    return  this.imageUrl;
   }
 }
