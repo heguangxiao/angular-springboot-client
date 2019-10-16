@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HouseOwnerService} from '../../service/house-owner.service';
 import {CategoryService} from '../../service/category.service';
 import {Category} from '../../class/category';
+import {Router} from '@angular/router';
+import {AlertService} from '../../service/alert.service';
 
 @Component({
   selector: 'app-new-house',
@@ -18,7 +20,9 @@ export class NewHouseComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private houseOwnerService: HouseOwnerService,
-              private categoryService: CategoryService) {
+              private categoryService: CategoryService,
+              private router: Router,
+              private alertService: AlertService) {
   }
 
   ngOnInit() {
@@ -65,7 +69,8 @@ export class NewHouseComponent implements OnInit {
     console.log(formData);
     this.houseOwnerService.newHouse(formData).subscribe(
       data => {
-        this.message = 'successfully created house';
+        this.alertService.success('successfully created house', true);
+        this.router.navigate(['houseOwner']);
       }, error => {
         console.log(error);
       }
