@@ -42,7 +42,6 @@ export class AddImageComponent implements OnInit {
   detectFiles(event) {
     this.selectedFiles = event.target.files;
     this.uploadMul();
-    console.log(this.tokenStorage.getAvatar());
   }
 
   uploadImages() {

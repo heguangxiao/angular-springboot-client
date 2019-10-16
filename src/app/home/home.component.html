@@ -1,31 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#"><img src="https://pngimage.net/wp-content/uploads/2018/05/airbnb-logo-white-png-4.png" width="100px" height="40"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-        <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a></li>
-        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/listHouse" class="nav-link">List House</a></li>
-        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/history" class="nav-link">History Booking</a></li>
-        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/houseOwner" class="nav-link">List House lease</a></li>
-        <li><a *ngIf="loginService.isUserLoggedIn()" (click)="newHouse()" class="nav-link">New house</a></li>
-        <li>
-          <div class="btn-group" *ngIf="loginService.isUserLoggedIn()">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-            <div class="dropdown-menu dropdown-menu-right" *ngIf="loginService.isUserLoggedIn()">
-              <button class="dropdown-item" type="button" routerLink="/editUser">Edit Info</button>
-              <button class="dropdown-item" type="button" routerLink="/password">Change Password</button>
-              <button class="dropdown-item" type="button" routerLink="/logout">Log Out</button>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<app-header></app-header>
 
 <header>
   <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
@@ -189,7 +162,7 @@
 </div>
 
 <!-- Page Content -->
-<div class="container py-4 mt-4" *ngIf="!loginService.isUserLoggedIn()">
+<div class="container py-4 mt-4" *ngIf="!checkLogin">
   <p class="display-3">Meet our Hotel Team</p>
   <div class="row">
     <!-- Team Member 1 -->
