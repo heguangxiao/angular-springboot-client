@@ -8,6 +8,8 @@ import {UploadService} from '../../service/upload.service';
 import {FirebaseApp} from '@angular/fire';
 import {Upload} from '../../class/upload';
 import {TokenStorageService} from '../../service/token-storage.service';
+import {Router} from '@angular/router';
+import {AlertService} from '../../service/alert.service';
 
 @Component({
   selector: 'app-new-house',
@@ -29,8 +31,9 @@ export class NewHouseComponent implements OnInit {
               private houseOwnerService: HouseOwnerService,
               private categoryService: CategoryService,
               private storage: AngularFireStorage, private upSvc: UploadService, @Inject(FirebaseApp) firebaseApp: any,
-              private token: TokenStorageService
-  ) {
+              private token: TokenStorageService,
+              private router: Router,
+              private alertService: AlertService) {
   }
 
   ngOnInit() {
@@ -103,7 +106,8 @@ export class NewHouseComponent implements OnInit {
     console.log(formData);
     this.houseOwnerService.newHouse(formData).subscribe(
       data => {
-        this.message = 'successfully created house';
+        this.alertService.success('successfully created house', true);
+        this.router.navigate(['houseOwner']);
       }, error => {
         console.log(error);
       }
