@@ -16,9 +16,9 @@ import {UpdateUser} from '../../class/update-user';
 })
 export class BookDetailComponent implements OnInit {
 
-  book: BookHouse;
+  bookList: BookHouse[];
   name: string;
-  user: UpdateUser;
+  users: UpdateUser[] = [];
 
   constructor(private route: ActivatedRoute,
               private bookService: BookService
@@ -26,21 +26,20 @@ export class BookDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getDetailBook();
-    console.log(this.user);
   }
 
   getDetailBook() {
-    // this.book = new BookHouse();
-    // this.user = new UpdateUser();
     this.name = this.route.snapshot.params.name;
     this.bookService.findByHouseName(this.name)
       .subscribe(data => {
-        this.book = data;
-        this.user = this.book.user;
-        console.log(this.user);
+        this.bookList = data;
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < this.bookList.length; i++ ) {
+          this.users.push(this.bookList[i].user);
+        }
+        console.log(this.users);
       }, error => {
         console.log(error);
       });
   }
-
 }

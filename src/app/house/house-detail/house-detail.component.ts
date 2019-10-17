@@ -38,7 +38,6 @@ export class HouseDetailComponent implements OnInit {
   total: number;
   minDate = new Date();
   error: any = {isError: false, errorMessage: ''};
-
   constructor(private route: ActivatedRoute, private bookService: BookService, private fb: FormBuilder,
               private token: TokenStorageService, private houseService: HouseService, private router: Router) {
   }
