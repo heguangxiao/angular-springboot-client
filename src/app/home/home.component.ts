@@ -17,7 +17,6 @@ import {ImageService} from '../service/image.service';
 export class HomeComponent implements OnInit {
   employees: Observable<Employee[]>;
   listHouse: House [];
-  searchText;
   username = '';
   checkLogin: boolean;
 
@@ -25,8 +24,7 @@ export class HomeComponent implements OnInit {
               private router: Router,
               private loginService: AuthenticationService,
               private houseService: HouseService,
-              private tokenService: TokenStorageService,
-              private imageSvc: ImageService
+              private tokenService: TokenStorageService
   ) {
   }
 
