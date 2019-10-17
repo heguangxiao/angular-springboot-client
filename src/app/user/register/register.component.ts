@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../service/authentication.service';
 import {Router} from '@angular/router';
+import {AlertService} from '../../service/alert.service';
 
 
 
@@ -11,7 +12,8 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService, private router: Router) {
+  constructor(private authService: AuthenticationService, private router: Router,
+              private alertService: AlertService) {
   }
 
   isSignedUp = false;
@@ -31,11 +33,13 @@ export class RegisterComponent implements OnInit {
       this.authService.signUp(this.name, this.username, this.email, this.password).subscribe(
         data => {
           this.isSignedUp = true;
+          this.alertService.success('You have successfully registered, log in to enter the system', true);
           this.router.navigate(['login']);
         },
         error => {
           this.isSignUpFailed = true;
           this.message = error;
+          this.alertService.error('Registration has failed' + error);
         }
       );
     } else {
