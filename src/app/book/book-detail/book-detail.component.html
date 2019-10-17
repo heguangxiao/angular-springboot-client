@@ -1,15 +1,54 @@
-<div class="container" *ngIf="user">
-  <div>
-    <H4>User Book Detail</H4>
-  </div>
-  <div class="row" *ngIf="user">
-    <a>Name: {{user.name}} </a><br/>
-    <a>Avatar: {{user.avatarUrl}} </a><br/>
-    <a>Address: {{user.address}} </a><br/>
-    <a>Gender: {{user.gender}} </a><br/>
-    <a>Birth Day: {{user.birthday}} </a><br/>
-    <a>Phone Number: {{user.phoneNumber}} </a><br/>
-  </div>
+<!--<div class="container" *ngIf="users">-->
+<!--  <div class="row align-content-center">-->
+<!--    <H4>User Booked Detail</H4>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <table *ngFor="let user of users">-->
+<!--      <tr class="row">-->
+<!--        <th class="col-2">Name</th>-->
+<!--        <th class="col-2">Gender</th>-->
+<!--        <th class="col-2">Address</th>-->
+<!--        <th class="col-2">Birth Day</th>-->
+<!--        <th class="col-2">Phone Number</th>-->
+<!--        <th class="col-2">Avatar</th>-->
+<!--      </tr>-->
+<!--      <tr class="row">-->
+<!--        <td class="col-2">{{user.name}}</td>-->
+<!--        <td class="col-2">{{user.gender}}</td>-->
+<!--        <td class="col-2">{{user.address}}</td>-->
+<!--        <td class="col-2">{{user.birthday | date}}</td>-->
+<!--        <td class="col-2">{{user.phoneNumber}}</td>-->
+<!--        <td class="col-2"><img [src]="user.avatarUrl" alt="" style="width: 40px; height: 40px"></td>-->
+<!--      </tr>-->
+<!--    </table>-->
+
+<!--  </div>-->
+<!--</div>-->
+<div class="container" *ngIf="users">
+  <table class="table table-hover table-borderless" >
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Address</th>
+      <th scope="col">Birth Day</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Avatar</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let user of users, index as i">
+    <tr>
+      <th scope="row">{{i+1}}</th>
+      <td>{{user.name}}</td>
+      <td>{{user.gender}}</td>
+      <td>{{user.address}}</td>
+      <td>{{user.birthday | date}}</td>
+      <td>{{user.phoneNumber}}</td>
+      <td><img [src]="user.avatarUrl" alt="" style="width: 40px; height: 40px"></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
 

@@ -13,7 +13,7 @@ export class HistoryBookingComponent implements OnInit {
   constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit() {
-   this.getBookHouseByUser();
+     this.getBookHouseByUser();
   }
   getBookHouseByUser() {
     this.bookService.getBookHouseByUser().subscribe(data => {
