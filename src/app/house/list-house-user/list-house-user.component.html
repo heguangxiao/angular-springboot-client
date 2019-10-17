@@ -14,16 +14,13 @@
   <div>Latitude: {{latitude}}</div>
   <div>Longitude: {{longitude}}</div>
 </div>
-<div class="panel panel-primary" xmlns="http://www.w3.org/1999/html">
+<div class="container-fluid panel panel-primary">
   <div class="panel-heading text-center" >
     <h2>House List</h2>
   </div>
   <div class="container panel-body">
     <div class="row">
-      <div class="col-2">
-        <label>Search By</label>
-      </div>
-      <div class="search-hero col-10">
+      <div class="search-hero col-sm-12">
         <input type="text" placeholder="House Name" class="col-2"  [(ngModel)]="houseFilter.name" >
         <input type="text" placeholder="Address" class="col-2"  [(ngModel)]="houseFilter.address" >
         <input type="number" placeholder="Bed Rooms" class="col-1" [(ngModel)]="houseFilter.bedRooms">
@@ -31,8 +28,8 @@
         <input type="number" placeholder="Min Price" class="col-2"  [(ngModel)]="houseFilter.minPrice" min="0" #minPrice>
         <input type="number" placeholder="Max Price" class="col-2"  [(ngModel)]="houseFilter.maxPrice" min= "{{minPrice.value}}" #maxPrice>
       </div>
-      <div class="row">
-        <table class="table table-striped">
+      <div>
+        <table class="table table-striped col-sm-12 mr-6">
           <thead>
           <tr>
             <th>Name</th>
@@ -40,7 +37,7 @@
             <th>bedRooms</th>
             <th>bathRooms</th>
             <th>pricePerNight</th>
-            <th>images</th>
+            <th>Image</th>
           </tr>
           </thead>
           <tbody>
@@ -50,7 +47,7 @@
             <td>{{house.bedRooms}}</td>
             <td>{{house.bathRooms}}</td>
             <td>{{house.pricePerNight}}</td>
-            <td>{{house.images}}</td>
+            <td><a href="{{house.images}}"><img src="{{house.images}}" style="width: 40px; height: 40px"></a></td>
             <td>
               <button (click)="houseDetail(house.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
             </td>
