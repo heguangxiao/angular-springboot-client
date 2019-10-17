@@ -29,4 +29,8 @@ export class HistoryBookingComponent implements OnInit {
       this.isDeleteBooking = true;
     });
   }
+
+  detailBooking(name: string) {
+    this.router.navigate(['bookDetail', name]);
+  }
 }

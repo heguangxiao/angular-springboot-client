@@ -16,6 +16,7 @@ import {HouseOwnerComponent} from './house-owner/house-owner.component';
 import {NewHouseComponent} from './house-owner/new-house/new-house.component';
 import {ChangeHouseStatusComponent} from './house-owner/change-house-status/change-house-status.component';
 import {AddImageComponent} from './house-owner/add-image/add-image.component';
+import {BookDetailComponent} from './book/book-detail/book-detail.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'password', component: ChangePassComponent, canActivate: [AuthGuardService] },
   { path: 'editUser', component: EditUserComponent, canActivate: [AuthGuardService] },
   { path: 'houseDetail/:id', component: HouseDetailComponent},
+  { path: 'bookDetail/:name', component: BookDetailComponent},
   { path: 'history', component: HistoryBookingComponent, canActivate: [AuthGuardService]},
   { path: 'listHouse', component: ListHouseUserComponent, canActivate: [AuthGuardService]},
   { path: 'upload', component: ShowUploadComponent},

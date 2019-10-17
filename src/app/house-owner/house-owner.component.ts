@@ -48,4 +48,8 @@ export class HouseOwnerComponent implements OnInit {
 
   }
 
+  addImg(id: number) {
+    this.router.navigate(['addImage', id]);
+  }
+
 }

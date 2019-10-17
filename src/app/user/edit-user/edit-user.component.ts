@@ -15,7 +15,7 @@ import {FirebaseApp} from '@angular/fire';
 })
 export class EditUserComponent implements OnInit {
   form: any = {};
-  updateInfo: UpdateUser = new UpdateUser();
+  updateInfo: UpdateUser;
   isUpdated = false;
   isUpdateFailed = false;
   errorMessage = '';

@@ -1,0 +1,16 @@
+<div class="container" *ngIf="user">
+  <div>
+    <H4>User Book Detail</H4>
+  </div>
+  <div class="row" *ngIf="user">
+    <a>Name: {{user.name}} </a><br/>
+    <a>Avatar: {{user.avatarUrl}} </a><br/>
+    <a>Address: {{user.address}} </a><br/>
+    <a>Gender: {{user.gender}} </a><br/>
+    <a>Birth Day: {{user.birthday}} </a><br/>
+    <a>Phone Number: {{user.phoneNumber}} </a><br/>
+  </div>
+</div>
+
+
+

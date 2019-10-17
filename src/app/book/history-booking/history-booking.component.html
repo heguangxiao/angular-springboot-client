@@ -8,11 +8,11 @@
       <th scope="col"> Checkin Date</th>
       <th scope="col"> CheckOut Date</th>
       <th scope="col">Book Date</th>
+      <th scope="col"></th>
     </tr>
     </thead>`
     <tbody *ngIf="historyBooking !== null">
-    <tr
-      *ngFor="let history of historyBooking ; index as i ">
+    <tr *ngFor="let history of historyBooking ; index as i ">
       <td>{{i + 1}}</td>
       <td>{{history.house.name}}</td>
       <td>{{history.checkinDate|date}}</td>
@@ -22,6 +22,9 @@
         <button (click)="deleteBooking(history.id)" class="table-link danger">Delete</button>
         <div *ngIf="isDeleteBooking" class="alert alert-danger">
           You cannot cancel booking within a day before checkin date</div>
+      </td>
+      <td>
+        <button (click)="detailBooking(history.house.name)" class="table-link btn-info">Booking User</button>
       </td>
     </tr>
     </tbody>
