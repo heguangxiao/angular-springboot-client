@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HouseOwnerService} from '../../service/house-owner.service';
 import {HouseStatus} from '../../class/house-status';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {HouseOwner} from '../../class/house-owner';
+import {AlertService} from '../../service/alert.service';
 
 @Component({
   selector: 'app-change-house-status',
@@ -18,7 +19,9 @@ export class ChangeHouseStatusComponent implements OnInit {
   statusA = HouseStatus.AVAILABLE;
 
   constructor(private houseOwnerService: HouseOwnerService,
-              private routes: ActivatedRoute) {
+              private routes: ActivatedRoute,
+              private router: Router,
+              private alertService: AlertService) {
   }
 
   ngOnInit() {
@@ -34,7 +37,8 @@ export class ChangeHouseStatusComponent implements OnInit {
 
   changeHouseStatus(bookForm) {
     this.houseOwnerService.changeHouseStatus(this.house.id, bookForm.value.status).subscribe(next => {
-      console.log('update status successfully');
+      this.alertService.success('update status successfully', true);
+      this.router.navigate(['houseOwner']);
     }, error => {
       console.log('error update status' + error);
     });
