@@ -13,7 +13,7 @@ import {MapsAPILoader} from '@agm/core';
   styleUrls: ['./list-house-user.component.css']
 })
 export class ListHouseUserComponent implements OnInit {
-  listHouse: Observable<House[]>;
+  listHouse: House[];
   houseFilter: HouseFilter = new HouseFilter();
 
   latitude: number;
@@ -22,10 +22,13 @@ export class ListHouseUserComponent implements OnInit {
   private geoCoder;
   address: string;
   public searchElementRef: ElementRef;
+  p: any;
+
   constructor(private houseService: HouseService, private loginService: AuthenticationService,
               private router: Router, private mapsAPILoader: MapsAPILoader,
               private ngZone: NgZone) {
   }
+
   ngOnInit() {
     this.reloadData();
     this.setCurrentLocation();
@@ -50,6 +53,7 @@ export class ListHouseUserComponent implements OnInit {
       });
     });
   }
+
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -60,8 +64,9 @@ export class ListHouseUserComponent implements OnInit {
       });
     }
   }
+
   getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ location: { lat: latitude, lng: longitude } }, (results, status) => {
+    this.geoCoder.geocode({location: {lat: latitude, lng: longitude}}, (results, status) => {
       console.log(results);
       console.log(status);
       if (status === 'OK') {
@@ -79,6 +84,7 @@ export class ListHouseUserComponent implements OnInit {
 
     });
   }
+
   markerDragEnd($event: MouseEvent) {
     console.log($event);
     // this.latitude = $event.coords.lat;
@@ -87,7 +93,9 @@ export class ListHouseUserComponent implements OnInit {
   }
 
   reloadData() {
-    this.listHouse = this.houseService.getListHouse();
+    this.houseService.getListHouse().subscribe(data => {
+      this.listHouse = data;
+    });
   }
 
   houseDetail(id: number) {
