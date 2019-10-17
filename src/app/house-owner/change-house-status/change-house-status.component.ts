@@ -40,7 +40,7 @@ export class ChangeHouseStatusComponent implements OnInit {
       this.alertService.success('update status successfully', true);
       this.router.navigate(['houseOwner']);
     }, error => {
-      console.log('error update status' + error);
+      this.alertService.error('error update status' + error);
     });
   }
 
