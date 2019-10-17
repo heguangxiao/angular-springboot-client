@@ -1,31 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#"><img src="https://pngimage.net/wp-content/uploads/2018/05/airbnb-logo-white-png-4.png" width="100px" height="40"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-        <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a></li>
-        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/listHouse" class="nav-link">List House</a></li>
-        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/history" class="nav-link">History Booking</a></li>
-        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/houseOwner" class="nav-link">List House lease</a></li>
-        <li><a *ngIf="loginService.isUserLoggedIn()" (click)="newHouse()" class="nav-link">New house</a></li>
-        <li>
-          <div class="btn-group" *ngIf="loginService.isUserLoggedIn()">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-            <div class="dropdown-menu dropdown-menu-right" *ngIf="loginService.isUserLoggedIn()">
-              <button class="dropdown-item" type="button" routerLink="/editUser">Edit Info</button>
-              <button class="dropdown-item" type="button" routerLink="/password">Change Password</button>
-              <button class="dropdown-item" type="button" routerLink="/logout">Log Out</button>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<app-header></app-header>
 
 <header>
   <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
@@ -70,94 +43,10 @@
 <section class="py-5">
   <div class="container text-center">
     <h1 class="font-weight-light">AIRBNB</h1>
-    <p class="lead">Welcome to airbnb a place for real lux an confortable Holday!</p>
+    <p class="lead">Welcome to airbnb a place for real lux an comfortable Holiday!</p>
   </div>
 </section>
-<!-- Page Content -->
-<!--<div class="container">-->
-<!--  <div class="col-lg-12">-->
 
-<!--    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Our Popular Destinations</h1>-->
-<!--    <hr class="mt-2 mb-5">-->
-<!--    <div class="row text-center text-info-left">-->
-<!--      <div class="col-lg-6 col-md-4 col-6 p-1">-->
-<!--        <a href="#" class="d-block  h-100">-->
-<!--          <img class="img-fluid w-100" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="">-->
-<!--        </a>-->
-<!--        <div class="card-img-overlay col-lg-auto">-->
-<!--          <h2 class="ugali">Việt Nam</h2>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-lg-3 col-md-4 col-6 p-1">-->
-<!--        <a href="#" class="d-block mb-4 h-100">-->
-<!--          <img class="img-fluid" src="https://source.unsplash.com/aob0ukAYfuI/400x300" alt="">-->
-
-<!--        </a>-->
-<!--        <div class="card-img-overlay  text-white">-->
-<!--          <h2 class="ugali">USA</h2>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-lg-3 col-md-4 col-6 p-1">-->
-<!--        <a href="#" class="d-block h-100">-->
-<!--          <img class="img-fluid " src="https://source.unsplash.com/EUfxH-pze7s/400x300" alt="">-->
-<!--        </a>-->
-<!--        <div class="card-img-overlay text-white">-->
-<!--          <h2>Arusha</h2>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-lg-3 col-md-6 col-6 p-1">-->
-<!--        <a href="#" class="d-block  h-100">-->
-<!--          <img class="img-fluid" src="https://source.unsplash.com/M185_qYH8vg/400x300" alt="">-->
-<!--        </a>-->
-<!--        <div class="card-img-overlay text-white">-->
-<!--          <h2 class="ugali">Thai lan</h2>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-lg-3 col-md-4 col-6 p-1">-->
-<!--        <a href="#" class="d-block mb-4 h-100">-->
-<!--          <img class="img-fluid" src="https://source.unsplash.com/sesveuG_rNo/400x300" alt="">-->
-<!--        </a>-->
-<!--        <div class="card-img-overlay text-white">-->
-<!--          <h2 class="ugali">China</h2>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-lg-6 col-md-8 col-8 p-1">-->
-<!--        <a href="#" class="d-block  h-100">-->
-<!--          <img class="img-fluid w-100 fix-im" src="https://source.unsplash.com/AvhMzHwiE_0/400x300" alt="">-->
-<!--        </a>-->
-<!--        <div class="card-img-overlay text-white">-->
-<!--          <h2 class="ugali">Việt Nam</h2>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-lg-4 col-md-8 col-6 p-1 fix-im">-->
-<!--        <a href="#" class="d-block  h-100">-->
-<!--          <img class="img-fluid" src="https://source.unsplash.com/sesveuG_rNo/400x300" alt="">-->
-<!--        </a>-->
-<!--        <div class="card-img-overlay text-white">-->
-<!--          <h2 class="ugali">Việt Nam</h2>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-lg-4 col-md-6 col-8 p-1">-->
-<!--        <a href="#" class="d-block  h-100">-->
-<!--          <img class="img-fluid fix-im" src="https://source.unsplash.com/AvhMzHwiE_0/400x300" alt="">-->
-<!--        </a>-->
-<!--        <div class="card-img-overlay text-white">-->
-<!--          <h2 class="ugali">Việt Nam</h2>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-lg-4 col-md-4 col-6 p-1">-->
-<!--        <a href="#" class="d-block  h-100">-->
-<!--          <img class="img-fluid fix-im" src="https://source.unsplash.com/2gYsZUmockw/400x300" alt="">-->
-<!--        </a>-->
-<!--        <div class="card-img-overlay text-white">-->
-<!--          <h2 class="ugali">IRan</h2>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<!-- /.container -->
-<!-- Header -->
 <header class="bg-primary text-center py-5 mb-4">
   <div class="container">
     <h1 class="font-weight-light text-white">Book now for Sale off 10% </h1>
@@ -174,7 +63,7 @@
     <div class="col-lg-4 col-sm-6 mb-4"  *ngFor="let list of listHouse">
       <div class="card shadow border-0 h-100">
 <!--        lấy ảnh vào đây-->
-        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a href="#"><img class="card-img-top" src="{{ list.images}}" alt=""></a>
 <!--        hết ảnh-->
         <div class="card-body">
           <h4 class="card-title">
@@ -189,7 +78,7 @@
 </div>
 
 <!-- Page Content -->
-<div class="container py-4 mt-4">
+<div class="container py-4 mt-4" *ngIf="!checkLogin">
   <p class="display-3">Meet our Hotel Team</p>
   <div class="row">
     <!-- Team Member 1 -->
@@ -217,7 +106,7 @@
       <div class="card border-0 shadow">
         <img src="https://source.unsplash.com/sNut2MqSmds/500x350" class="card-img-top" alt="...">
         <div class="card-body text-center">
-          <h5 class="card-title mb-0">Lê Đức Hạnh</h5>
+          <h5 class="card-title mb-0">Lê Khắc Hạnh</h5>
           <div class="card-text text-black-50">Web Developer</div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import {AuthenticationService} from '../service/authentication.service';
 import {House} from '../class/House';
 import {HouseService} from '../service/house.service';
 import {TokenStorageService} from '../service/token-storage.service';
+import {ImageService} from '../service/image.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -16,8 +17,8 @@ import {TokenStorageService} from '../service/token-storage.service';
 export class HomeComponent implements OnInit {
   employees: Observable<Employee[]>;
   listHouse: House [];
-  searchText;
   username = '';
+  checkLogin: boolean;
 
   constructor(private employeeService: EmployeeService,
               private router: Router,
@@ -29,7 +30,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
-    if (this.loginService.isUserLoggedIn()) {
+    this.checkLogin = this.loginService.isUserLoggedIn();
+    if (this.checkLogin) {
       this.username = this.tokenService.getUsername().toString();
     }
   }

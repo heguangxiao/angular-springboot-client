@@ -5,7 +5,17 @@
       <div class="col-md-4">
         <div class="custom-file" style="width: 18em">
           <img [src]="imageUrl"  style="width:250px;height:200px;display: none">
-<!--          <input type="file" formControlName="images" required>-->
+          <div *ngIf="currentUpload" class="progress">
+            <div class="progress-bar progress-bar-info progress-bar-striped"
+                 role="progressbar" attr.aria-valuenow="{{percentage}}"
+                 aria-valuemin="0" aria-valuemax="100"
+                 [ngStyle]="{width:percentage+'%'}">
+              {{percentage}}%
+            </div>
+          </div>
+          <label class="btn btn-default"> <input type="file"
+                                                 (change)="detectFiles($event)" multiple>
+          </label>
         </div>
       </div>
       <div class="col-md-4">
@@ -36,6 +46,7 @@
         </label>
       </div>
     </div>
-    <button class="btn-large btn-submit">New HouseOwner</button>
+    <button class="btn-info btn-submit">New HouseOwner</button>
   </form>
 </div>
+<div *ngIf="message" style="color: green">{{message}}</div>

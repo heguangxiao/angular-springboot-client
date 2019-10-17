@@ -1,8 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HouseOwnerService} from '../../service/house-owner.service';
 import {CategoryService} from '../../service/category.service';
 import {Category} from '../../class/category';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {UploadService} from '../../service/upload.service';
+import {FirebaseApp} from '@angular/fire';
+import {Upload} from '../../class/upload';
+import {TokenStorageService} from '../../service/token-storage.service';
+import {Router} from '@angular/router';
+import {AlertService} from '../../service/alert.service';
 
 @Component({
   selector: 'app-new-house',
@@ -11,18 +18,50 @@ import {Category} from '../../class/category';
 })
 export class NewHouseComponent implements OnInit {
 
-  imageUrl = '../../assets/img/default-image.png';
+  imageUrl = '';
   categories: Category[];
   newHouseForm: FormGroup;
+  message: string;
+
+  selectedFiles: FileList;
+  currentUpload: Upload;
+  percentage: number;
 
   constructor(private fb: FormBuilder,
               private houseOwnerService: HouseOwnerService,
-              private categoryService: CategoryService) {
+              private categoryService: CategoryService,
+              private storage: AngularFireStorage, private upSvc: UploadService, @Inject(FirebaseApp) firebaseApp: any,
+              private token: TokenStorageService,
+              private router: Router,
+              private alertService: AlertService) {
   }
 
   ngOnInit() {
     this.createHouseForm();
     this.getCategories();
+    this.imageUrl = this.token.getAvatar();
+  }
+
+  detectFiles(event) {
+    this.selectedFiles = event.target.files;
+    this.upload();
+    this.imageUrl = this.token.getAvatar();
+  }
+
+  upload() {
+    const file = this.selectedFiles.item(0);
+    this.selectedFiles = undefined;
+
+    this.currentUpload = new Upload(file);
+    this.upSvc.pushFileToStorage(this.currentUpload)
+      .subscribe(
+        percentage => {
+          this.percentage = Math.round(percentage);
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
   getCategories() {
@@ -51,8 +90,10 @@ export class NewHouseComponent implements OnInit {
   }
 
   newHouse() {
+    this.imageUrl = this.token.getAvatar();
     const formData: FormData = new FormData();
     const homePostInformation = this.newHouseForm.value;
+    homePostInformation.images = this.imageUrl;
     formData.append('name', homePostInformation.name);
     formData.append('address', homePostInformation.address);
     formData.append('bedRooms', homePostInformation.bedRooms);
@@ -60,11 +101,13 @@ export class NewHouseComponent implements OnInit {
     formData.append('description', homePostInformation.description);
     formData.append('category', homePostInformation.category);
     formData.append('pricePerNight', homePostInformation.pricePerNight);
+    formData.append('images', homePostInformation.images);
     console.log(homePostInformation);
     console.log(formData);
     this.houseOwnerService.newHouse(formData).subscribe(
       data => {
-        console.log('successfully created house');
+        this.alertService.success('successfully created house', true);
+        this.router.navigate(['houseOwner']);
       }, error => {
         console.log(error);
       }

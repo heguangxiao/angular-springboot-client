@@ -1,6 +1,5 @@
 import {Inject, Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
-import {FirebaseListObservable} from '@angular/fire/database-deprecated';
 import {Upload} from '../class/upload';
 import * as firebase from 'firebase';
 import {FirebaseApp} from '@angular/fire';
@@ -58,7 +57,6 @@ export class UploadService {
           fileUpload.name = fileUpload.file.name;
           this.saveFileData(fileUpload);
           this.token.saveImages(fileUpload.url);
-          console.log(fileUpload.url);
         });
       })
     ).subscribe();

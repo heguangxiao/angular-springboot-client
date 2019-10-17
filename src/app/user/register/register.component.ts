@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
       this.authService.signUp(this.name, this.username, this.email, this.password).subscribe(
         data => {
           this.isSignedUp = true;
+          this.router.navigate(['login']);
         },
         error => {
           this.isSignUpFailed = true;

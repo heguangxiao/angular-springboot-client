@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {House} from '../../class/House';
 import {BookHouse} from '../../class/bookHouse';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {BookService} from '../../service/book.service';
 import {TokenStorageService} from '../../service/token-storage.service';
 import {HouseService} from '../../service/house.service';
@@ -40,7 +40,7 @@ export class HouseDetailComponent implements OnInit {
   error: any = {isError: false, errorMessage: ''};
 
   constructor(private route: ActivatedRoute, private bookService: BookService, private fb: FormBuilder,
-              private token: TokenStorageService, private houseService: HouseService) {
+              private token: TokenStorageService, private houseService: HouseService, private router: Router) {
   }
 
   ngOnInit() {
@@ -79,6 +79,10 @@ export class HouseDetailComponent implements OnInit {
     if (this.token.getToken()) {
       this.authority = true;
     }
+  }
+
+  addImg(id: number) {
+    this.router.navigate(['addImage', id]);
   }
   // getTotal() {
   //   this.total = (this.checkOut.getTime() - this.checkIn.getTime()) / (24 * 3600 * 1000);

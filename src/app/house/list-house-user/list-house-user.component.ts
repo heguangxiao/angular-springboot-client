@@ -15,6 +15,7 @@ import {MapsAPILoader} from '@agm/core';
 export class ListHouseUserComponent implements OnInit {
   listHouse: Observable<House[]>;
   houseFilter: HouseFilter = new HouseFilter();
+
   latitude: number;
   longitude: number;
   zoom: number;
@@ -23,8 +24,8 @@ export class ListHouseUserComponent implements OnInit {
   public searchElementRef: ElementRef;
   constructor(private houseService: HouseService, private loginService: AuthenticationService,
               private router: Router, private mapsAPILoader: MapsAPILoader,
-              private ngZone: NgZone) { }
-
+              private ngZone: NgZone) {
+  }
   ngOnInit() {
     this.reloadData();
     this.setCurrentLocation();
@@ -68,10 +69,12 @@ export class ListHouseUserComponent implements OnInit {
           this.zoom = 12;
           this.address = results[0].formatted_address;
         } else {
-          window.alert('No results found');
+          console.log('No results found');
+          // window.alert('No results found');
         }
       } else {
-        window.alert('Geocoder failed due to: ' + status);
+        console.log('Geocoder failed due to: ' + status);
+        // window.alert('Geocoder failed due to: ' + status);
       }
 
     });
@@ -82,9 +85,11 @@ export class ListHouseUserComponent implements OnInit {
     // this.longitude = $event.coords.lng;
     this.getAddress(this.latitude, this.longitude);
   }
+
   reloadData() {
     this.listHouse = this.houseService.getListHouse();
   }
+
   houseDetail(id: number) {
     this.router.navigate(['houseDetail', id]);
   }

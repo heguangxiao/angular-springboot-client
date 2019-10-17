@@ -8,7 +8,7 @@
 
   <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
     <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
-                (dragEnd)="markerDragEnd($event)"></agm-marker>
+                (dragEnd)="markerDragEnd ($event)"></agm-marker>
   </agm-map>
   <h5>Address: {{address}}</h5>
   <div>Latitude: {{latitude}}</div>
@@ -37,6 +37,7 @@
             <th>bedRooms</th>
             <th>bathRooms</th>
             <th>pricePerNight</th>
+            <th>Image</th>
           </tr>
           </thead>
           <tbody>
@@ -46,6 +47,7 @@
             <td>{{house.bedRooms}}</td>
             <td>{{house.bathRooms}}</td>
             <td>{{house.pricePerNight}}</td>
+            <td><a href="{{house.images}}"><img src="{{house.images}}" style="width: 40px; height: 40px"></a></td>
             <td>
               <button (click)="houseDetail(house.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
             </td>
