@@ -1,14 +1,27 @@
-<div class="container" *ngIf="user">
-  <div>
-    <H4>User Book Detail</H4>
+<div class="container" *ngIf="users">
+  <div class="row align-content-center">
+    <H4>User Booked Detail</H4>
   </div>
-  <div class="row" *ngIf="user">
-    <a>Name: {{user.name}} </a><br/>
-    <a>Avatar: <img src="{{user.avatarUrl}}" alt="Error image"> </a><br/>
-    <a>Address: {{user.address}} </a><br/>
-    <a>Gender: {{user.gender}} </a><br/>
-    <a>Birth Day: {{user.birthday}} </a><br/>
-    <a>Phone Number: {{user.phoneNumber}} </a><br/>
+  <div>
+    <table *ngFor="let user of users">
+      <tr class="row">
+        <th class="col-2">Name</th>
+        <th class="col-2">Gender</th>
+        <th class="col-2">Address</th>
+        <th class="col-2">Birth Day</th>
+        <th class="col-2">Phone Number</th>
+        <th class="col-2">Avatar</th>
+      </tr>
+      <tr class="row">
+        <td class="col-2">{{user.name}}</td>
+        <td class="col-2">{{user.gender}}</td>
+        <td class="col-2">{{user.address}}</td>
+        <td class="col-2">{{user.birthday | date}}</td>
+        <td class="col-2">{{user.phoneNumber}}</td>
+        <td class="col-2"><img [src]="user.avatarUrl" alt="" style="width: 40px; height: 40px"></td>
+      </tr>
+    </table>
+
   </div>
 </div>
 

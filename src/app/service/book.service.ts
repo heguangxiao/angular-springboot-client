@@ -25,7 +25,7 @@ export class BookService {
     return this.http.get(this.apiUrl + '/book/owner');
   }
 
-  findByHouseName(name): Observable<BookHouse> {
-    return this.http.get<BookHouse>(this.apiUrl + '/book/house/' + name);
+  findByHouseName(name): Observable<BookHouse[]> {
+    return this.http.get<BookHouse[]>(this.apiUrl + '/book/house/' + name);
   }
 }
