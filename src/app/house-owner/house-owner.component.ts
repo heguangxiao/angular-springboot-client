@@ -34,6 +34,10 @@ export class HouseOwnerComponent implements OnInit {
     this.router.navigate(['newhouse']);
   }
 
+  historyBooking() {
+    this.router.navigate(['historyuserbooking']);
+  }
+
   changeHouseStatus(id: number) {
     this.router.navigate(['statushouse', id]);
   }
@@ -46,6 +50,10 @@ export class HouseOwnerComponent implements OnInit {
       console.log(error);
     });
 
+  }
+
+  addImg(id: number) {
+    this.router.navigate(['addImage', id]);
   }
 
 }

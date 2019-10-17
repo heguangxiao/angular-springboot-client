@@ -1,4 +1,5 @@
 <button (click)="newHouse()" class="btn btn-info">New HouseOwner</button>
+<button (click)="historyBooking()" class="btn btn-info">History User Booked</button>
 <table class="table" *ngIf="houses">
   <thead class="thead-light">
   <tr>
@@ -8,6 +9,7 @@
     <th scope="col">Status</th>
     <th scope="col">PricePerNight</th>
     <th scope="col">Option</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -20,6 +22,9 @@
     <td>
       <button (click)="deleteHouse(house.id)" class="btn btn-danger">Delete</button>
     </td>
+    <td><div>
+      <button (click)="addImg(house.id)" class="btn btn-info" style="margin-left: 10px">Add Image</button>
+    </div></td>
   </tr>
   </tbody>
 </table>

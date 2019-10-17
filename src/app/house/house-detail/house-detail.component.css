@@ -1,5 +1,16 @@
+.row .col-6 p{
+  font-weight: bold;
+}
 
+.row .col-6 p b{
+  font-style: italic;
+  color: darkcyan;
+}
 .carousel-inner img {
   width: 100%;
   height: 100%;
+}
+
+.row .col-md-6 .form-group label{
+  color: darkcyan;
 }

@@ -3,20 +3,21 @@ import {BookService} from '../../service/book.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-history-booking',
-  templateUrl: './history-booking.component.html',
-  styleUrls: ['./history-booking.component.css']
+  selector: 'app-history-user-booking',
+  templateUrl: './history-user-booking.component.html',
+  styleUrls: ['./history-user-booking.component.css']
 })
-export class HistoryBookingComponent implements OnInit {
+export class HistoryUserBookingComponent implements OnInit {
+
   historyBooking;
   isDeleteBooking = false;
   constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit() {
-     this.getBookHouseByUser();
+    this.getBookHouseByUser();
   }
   getBookHouseByUser() {
-    this.bookService.getBookHouseByUser().subscribe(data => {
+    this.bookService.getBookHouseByOwner().subscribe(data => {
       this.historyBooking = data;
     }, error => {
       console.log(error);
@@ -33,4 +34,5 @@ export class HistoryBookingComponent implements OnInit {
   detailBooking(name: string) {
     this.router.navigate(['bookDetail', name]);
   }
+
 }

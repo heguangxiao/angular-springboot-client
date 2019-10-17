@@ -21,7 +21,11 @@ export class BookService {
     return this.http.delete(this.apiUrl + '/book/' + id);
   }
 
-  getBookHouseByOwner(data: string): Observable<any> {
-    return this.http.get(this.apiUrl + '/owner' + data);
+  getBookHouseByOwner(): Observable<any> {
+    return this.http.get(this.apiUrl + '/book/owner');
+  }
+
+  findByHouseName(name): Observable<BookHouse[]> {
+    return this.http.get<BookHouse[]>(this.apiUrl + '/book/house/' + name);
   }
 }

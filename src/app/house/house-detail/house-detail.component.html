@@ -4,23 +4,14 @@
   </div>
   <div class="row">
     <div class="col-6">
-      <p>Name: {{house.name}} </p>
-      <p><i class='fas fa-house-damage'></i>
-        Category: {{house.category.name}} </p>
-      <p><i class='fas fa-city'></i>
-        Address: {{house.address}} </p>
-      <p><i class='fas fa-bed'></i>
-        Bed rooms: {{house.bedRooms}} </p>
-      <p><i class='fas fa-bath'></i>
-        Bath rooms: {{house.bathRooms}} </p>
-      <p><i class='fas fa-money-check-alt'></i>
-        $/night: {{house.pricePerNight}} </p>
-      <p *ngIf="house.isRented" style="color: red"><i class='fas fa-caret-square-right' ></i>
-        Rented</p>
-      <p *ngIf="!house.isRented" style="color: blue"><i class='fas fa-caret-square-right' ></i>
-        Available</p>
-      <p><i class="material-icons"></i>
-        Description: {{house.description}}</p>
+      <p>Name: <b> {{house.name}}</b></p>
+      <p>Category: <b> {{house.category.name}}</b></p>
+      <p>Address: <b>{{house.address}}</b></p>
+      <p>Bed rooms: <b>{{house.bedRooms}}</b></p>
+      <p>Bath rooms: <b> {{house.bathRooms}}</b></p>
+      <p>$/night: <b> {{house.pricePerNight}}</b></p>
+      <p>{{house.status}}</p>
+      <p>Description: <b> {{house.description}} </b></p>
     </div>
     <div class=" col-6">
       <form [formGroup]="bookForm" (ngSubmit)="onBooking()">
@@ -35,7 +26,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Check out</label>
-              <input  type="date" class="form-control" formControlName="checkOut" [(ngModel)]="checkOut" >
+              <input type="date" class="form-control" formControlName="checkOut" [(ngModel)]="checkOut">
             </div>
           </div>
         </div>
@@ -48,11 +39,8 @@
       <div *ngIf="booked && booking" class="alert alert-success">
         You are booked this house successfully
       </div>
-      <div *ngIf="!booked && booking" class="alert alert-danger">
-        You are booked this house fail
-      </div>
-      <div *ngIf="house.isRented && booking" class="alert alert-danger">
-        Sorry the house is rented
+      <div *ngIf="isRented" class="alert alert-danger">
+        House is rented, you can check in the day after
       </div>
       <div *ngIf="!authority && booking">
         <a [routerLink]="['/login']" class="btn btn-primary book"> Login to Book</a>
@@ -60,8 +48,6 @@
     </div>
   </div>
 </div>
-<div>
-  <button (click)="addImg(house.id)" class="btn btn-info" style="margin-left: 10px">Add Image</button>
-</div>
+
 
 

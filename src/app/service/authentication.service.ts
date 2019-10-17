@@ -39,6 +39,10 @@ export class AuthenticationService {
     return this.httpClient.put<JwtResponse>(this.baseUrl + this.userInfoUrl, info);
   }
 
+  getUserById(id): Observable<any> {
+    return this.httpClient.get(this.baseUrl + '/role/user/' + id);
+  }
+
   isUserLoggedIn() {
     const usernameOrEmail = this.tokenStorage.getUsername();
     return !(usernameOrEmail === null);

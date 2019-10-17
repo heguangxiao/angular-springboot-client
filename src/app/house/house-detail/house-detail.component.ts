@@ -38,7 +38,6 @@ export class HouseDetailComponent implements OnInit {
   total: number;
   minDate = new Date();
   error: any = {isError: false, errorMessage: ''};
-
   constructor(private route: ActivatedRoute, private bookService: BookService, private fb: FormBuilder,
               private token: TokenStorageService, private houseService: HouseService, private router: Router) {
   }
@@ -81,9 +80,7 @@ export class HouseDetailComponent implements OnInit {
     }
   }
 
-  addImg(id: number) {
-    this.router.navigate(['addImage', id]);
-  }
+
   // getTotal() {
   //   this.total = (this.checkOut.getTime() - this.checkIn.getTime()) / (24 * 3600 * 1000);
   //   return this.house.pricePerNight * this.total;

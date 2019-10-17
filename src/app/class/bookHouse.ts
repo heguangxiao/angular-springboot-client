@@ -1,10 +1,17 @@
+import {UpdateUser} from './update-user';
+import {House} from './House';
+
 export class BookHouse {
-  checkIn: Date;
-  checkOut: Date;
+  id?: number;
+  user: UpdateUser;
+  house: House;
+  bookDate: Date;
+  checkinDate: Date;
+  checkoutDate: Date;
 
 
-  constructor(checkIn: Date, checkOut: Date) {
-    this.checkIn = checkIn;
-    this.checkOut = checkOut;
+  constructor(checkIn?: Date, checkOut?: Date) {
+    this.checkinDate = checkIn;
+    this.checkoutDate = checkOut;
   }
 }
