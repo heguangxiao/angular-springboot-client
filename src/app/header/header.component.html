@@ -8,7 +8,7 @@
       <ul class="navbar-nav ml-auto">
         <li><a *ngIf="!checkLogin" routerLink="/login" class="nav-link">Login</a></li>
         <li><a *ngIf="!checkLogin" routerLink="/register" class="nav-link">Register</a></li>
-        <li><a routerLink="/listHouse" class="nav-link">List House</a></li>
+        <li><a *ngIf="checkLogin" routerLink="/listHouse" class="nav-link">List House</a></li>
         <li><a *ngIf="checkLogin" routerLink="/history" class="nav-link">History Booking</a></li>
         <li><a *ngIf="checkLogin" routerLink="/historyuserbooking" class="nav-link">History User Booking</a></li>
         <li><a *ngIf="checkLogin" routerLink="/houseOwner" class="nav-link">House Owner</a></li>
