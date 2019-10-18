@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {BookService} from '../../service/book.service';
 import {TokenStorageService} from '../../service/token-storage.service';
 import {HouseService} from '../../service/house.service';
+import {AuthenticationService} from '../../service/authentication.service';
 
 function compareTwoDates(c: AbstractControl) {
   const v = c.value;
@@ -38,11 +39,14 @@ export class HouseDetailComponent implements OnInit {
   total: number;
   minDate = new Date();
   error: any = {isError: false, errorMessage: ''};
-  constructor(private route: ActivatedRoute, private bookService: BookService, private fb: FormBuilder,
-              private token: TokenStorageService, private houseService: HouseService, private router: Router) {
+  checkLogin: boolean;
+  constructor(private loginService: AuthenticationService, private route: ActivatedRoute,
+              private bookService: BookService, private fb: FormBuilder,
+              private token: TokenStorageService, private houseService: HouseService) {
   }
 
   ngOnInit() {
+    this.checkLogin = this.loginService.isUserLoggedIn();
     this.getHouseInfo();
   }
 
