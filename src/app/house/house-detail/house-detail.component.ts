@@ -39,14 +39,12 @@ export class HouseDetailComponent implements OnInit {
   total: number;
   minDate = new Date();
   error: any = {isError: false, errorMessage: ''};
-  checkLogin: boolean;
-  constructor(private loginService: AuthenticationService, private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
               private bookService: BookService, private fb: FormBuilder,
               private token: TokenStorageService, private houseService: HouseService) {
   }
 
   ngOnInit() {
-    this.checkLogin = this.loginService.isUserLoggedIn();
     this.getHouseInfo();
   }
 

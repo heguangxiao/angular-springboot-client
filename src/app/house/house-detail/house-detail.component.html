@@ -14,7 +14,7 @@
       <p>Description: <b> {{house.description}} </b></p>
     </div>
     <div class=" col-6">
-      <div *ngIf="checkLogin">
+      <div>
       <form [formGroup]="bookForm" (ngSubmit)="onBooking()">
         <h4>Booking House</h4>
         <div class="row">

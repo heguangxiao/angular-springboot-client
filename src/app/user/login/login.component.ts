@@ -40,9 +40,12 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['']);
       },
       error => {
+
+        this.isLoggedIn = false;
         this.isLoginFailed = true;
         this.errorMessage = error.error.message;
       }
     );
   }
+
 }
