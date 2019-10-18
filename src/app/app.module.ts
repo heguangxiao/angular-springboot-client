@@ -40,6 +40,7 @@ import {FileUploadModule} from 'ng2-file-upload';
 import { AlertComponent } from './house-owner/alert/alert.component';
 import { BookDetailComponent } from './book/book-detail/book-detail.component';
 import { HistoryUserBookingComponent } from './house-owner/history-user-booking/history-user-booking.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { HistoryUserBookingComponent } from './house-owner/history-user-booking/
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
