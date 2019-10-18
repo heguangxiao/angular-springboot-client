@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   listHouse: House [];
   username = '';
   checkLogin: boolean;
+  p: any;
 
   constructor(private employeeService: EmployeeService,
               private router: Router,

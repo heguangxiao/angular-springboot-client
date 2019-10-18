@@ -60,7 +60,7 @@
   <p class="lead ">Our suggestions</p>
 
   <div class="row mt-4">
-    <div class="col-lg-4 col-sm-6 mb-4"  *ngFor="let list of listHouse">
+    <div class="col-lg-4 col-sm-6 mb-4"  *ngFor="let list of listHouse | paginate:{itemsPerPage: 9, currentPage:p}">
       <div class="card shadow border-0 h-100"  [routerLink]="['', 'houseDetail', list.id]">
 <!--        lấy ảnh vào đây-->
         <a><img class="card-img-top" src="{{ list.images}}" style="height: 183.5px;"></a>
@@ -75,6 +75,7 @@
       </div>
     </div>
   </div>
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
 </div>
 
 <!-- Page Content -->

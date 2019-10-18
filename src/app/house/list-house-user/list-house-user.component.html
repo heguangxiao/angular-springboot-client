@@ -41,7 +41,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let house of listHouse | paginate:{itemsPerPage: 5, currentPage:p} | listFilterPipe: houseFilter">
+          <tr *ngFor="let house of listHouse | paginate:{itemsPerPage: 9, currentPage:p} | listFilterPipe: houseFilter">
             <td>{{house.name}}</td>
             <td>{{house.address}}</td>
             <td>{{house.bedRooms}}</td>
