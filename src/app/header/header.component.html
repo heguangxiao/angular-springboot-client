@@ -6,17 +6,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li><a *ngIf="!checkLogin" routerLink="/login" class="nav-link">Login</a></li>
-        <li><a *ngIf="!checkLogin" routerLink="/register" class="nav-link">Register</a></li>
-        <li><a *ngIf="checkLogin" routerLink="/listHouse" class="nav-link">List House</a></li>
-        <li><a *ngIf="checkLogin" routerLink="/history" class="nav-link">History Booking</a></li>
-        <li><a *ngIf="checkLogin" routerLink="/historyuserbooking" class="nav-link">History User Booking</a></li>
-        <li><a *ngIf="checkLogin" routerLink="/houseOwner" class="nav-link">House Owner</a></li>
-        <li><a *ngIf="checkLogin" routerLink="/newhouse" class="nav-link">New House</a></li>
+        <li><a *ngIf="!checkLog" routerLink="/login" class="nav-link">Login</a></li>
+        <li><a *ngIf="!checkLog" routerLink="/register" class="nav-link">Register</a></li>
+        <li><a *ngIf="checkLog" routerLink="/listHouse" class="nav-link">List House</a></li>
+        <li><a *ngIf="checkLog" routerLink="/history" class="nav-link">History Booking</a></li>
+        <li><a *ngIf="checkLog" routerLink="/historyuserbooking" class="nav-link">History User Booking</a></li>
+        <li><a *ngIf="checkLog" routerLink="/houseOwner" class="nav-link">House Owner</a></li>
+        <li><a *ngIf="checkLog" routerLink="/newhouse" class="nav-link">New House</a></li>
         <li>
-          <div class="btn-group" *ngIf="checkLogin">
+          <div class="btn-group" *ngIf="checkLog">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-            <div class="dropdown-menu dropdown-menu-right" *ngIf="checkLogin">
+            <div class="dropdown-menu dropdown-menu-right" *ngIf="checkLog">
               <button class="dropdown-item" type="button" routerLink="/editUser">Edit Info</button>
               <button class="dropdown-item" type="button" routerLink="/password">Change Password</button>
               <button class="dropdown-item" type="button" routerLink="/logout">Log Out</button>

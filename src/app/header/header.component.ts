@@ -9,17 +9,13 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  checkLogin: boolean;
+  checkLog: boolean;
 
   constructor(private loginService: AuthenticationService,
               private router: Router) { }
 
   ngOnInit() {
-    this.checkLogin = this.loginService.isUserLoggedIn();
-  }
-
-  newHouse() {
-    this.router.navigate(['newhouse']);
+    this.checkLog = this.loginService.isUserLoggedIn();
   }
 
 }
